@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/c3.min.css') }}">
     <!-- style CSS
 		============================================ -->
-    <link rel="stylesheet" href="{{ URL::asset('style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ URL::asset('css/responsive.css') }}">
@@ -135,7 +135,7 @@
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                         <li class="nav-item">
-                                            <a href="#"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</a>
+                                            <a href="#"><span class="adminpro-icon adminpro-locked author-log-ic"></span>  Log Out</a>
                                         </li>
 
                                     </ul>
