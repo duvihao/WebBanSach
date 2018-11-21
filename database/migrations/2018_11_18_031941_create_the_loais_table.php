@@ -16,6 +16,7 @@ class CreateTheLoaisTable extends Migration
         Schema::create('the_loais', function (Blueprint $table) {
             $table->increments('matl');
             $table->string('tentl');
+            $table->string('alias');
             $table->timestamps();
         });
     }

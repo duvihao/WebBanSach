@@ -18,6 +18,7 @@ class CreateTacGiasTable extends Migration
             $table->string('tentg');
             $table->date('ngaysinh');
             $table->integer('gioitinh');
+            $table->string('alias');
             $table->timestamps();
         });
     }
