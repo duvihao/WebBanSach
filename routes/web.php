@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('admin.master');
 });
+
+Route::get('product', function(){
+	return view('admin.product.index');
+});
+
+Route::get('product/add', function(){
+	return view('admin.product.add');
+});
+
+Route::get('chargeship', function(){
+	return view('admin.chargeship.config');
+});
+

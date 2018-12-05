@@ -76,7 +76,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-book"></i> <span class="mini-dn">Sản Phẩm</span></a>
+                            <a href="{{ url('product') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-book"></i> <span class="mini-dn">Sản Phẩm</span></a>
                         </li>
 
                         <li class="nav-item">
@@ -92,7 +92,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-transfer"></i> <span class="mini-dn">Phí Ship</span></a>
+                            <a href="{{ url('chargeship') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-transfer"></i> <span class="mini-dn">Phí Ship</span></a>
                         </li>
 
                         <li class="nav-item">
