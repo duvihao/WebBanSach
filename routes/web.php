@@ -19,12 +19,24 @@ Route::get('admin/theloai', function(){
     return view('admin.theloai.index');
 });
 
+Route::get('admin/theloai/add', function(){
+    return view('admin.theloai.add');
+});
+
 Route::get('admin/tacgia', function(){
     return view('admin.tacgia.index');
 });
 
+Route::get('admin/tacgia/add', function(){
+    return view('admin.tacgia.add');
+});
+
 Route::get('admin/nxb', function(){
     return view('admin.nxb.index');
+});
+
+Route::get('admin/nxb/add', function(){
+    return view('admin.nxb.add');
 });
 
 Route::get('admin/sanpham', function(){
@@ -45,5 +57,9 @@ Route::get('admin/phiship', function(){
 
 Route::get('admin/hinhthucthanhtoan', function(){
     return view('admin.hinhthucthanhtoan.index');
+});
+
+Route::get('admin/hinhthucthanhtoan/add', function(){
+   return view('admin.hinhthucthanhtoan.add');
 });
 

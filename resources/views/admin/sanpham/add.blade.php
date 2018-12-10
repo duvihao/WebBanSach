@@ -42,7 +42,7 @@
                             <div class="sparkline13-list shadow-reset">
                                 <div class="sparkline13-hd">
                                     <div class="main-sparkline13-hd">
-                                        <h1>Projects <span class="table-project-n">Data</span> Table</h1>
+                                        <h1>Thêm Sách</h1>
                                         <div class="sparkline13-outline-icon">
                                             <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                         </div>
@@ -119,7 +119,7 @@
                                                         <div class="form-group-inner">
                                                             <div class="row">
                                                                 <div class="col-lg-2">
-                                                                    <label class="login2 pull-right pull-right-pro">Gía sách</label>
+                                                                    <label class="login2 pull-right pull-right-pro">Giá sách</label>
                                                                 </div>
                                                                 <div class="col-lg-8">
                                                                     <input type="number" class="form-control" />
@@ -157,7 +157,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-1">
-                                                                    <a type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm tác giả</a>
+                                                                    <a href="{{ url('admin/tacgia/add') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm tác giả</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -177,7 +177,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-1">
-                                                                    <a type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm NXB</a>
+                                                                    <a href="{{ url('admin/nxb/add') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm NXB</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -197,7 +197,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-1">
-                                                                    <a type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm thể loại</a>
+                                                                    <a href="{{ url('admin/theloai/add') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm thể loại</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -207,8 +207,17 @@
                                                                     <label class="login2 pull-right pull-right-pro">Hình ảnh</label>
                                                                 </div>
                                                                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                                                                    <div class="file-upload-inner file-upload-inner-right ts-forms">
-                                                                        <input type="file" id="append-small-btn" placeholder="no file selected">
+                                                                    <div class="file-upload-inner ts-forms">
+                                                                        <div class="input prepend-big-btn">
+                                                                            <label class="icon-right" for="prepend-big-btn">
+                                                                                <i class="fa fa-download"></i>
+                                                                            </label>
+                                                                            <div class="file-button">
+                                                                                Chọn tệp
+                                                                                <input type="file" onchange="document.getElementById('prepend-big-btn').value = this.value;">
+                                                                            </div>
+                                                                            <input type="text" id="prepend-big-btn" placeholder="Không có tệp nào được chọn">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -240,7 +249,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-        
+
 
 
                                                     </form>
