@@ -70,33 +70,33 @@
                 </div>
                 <div class="left-custom-menu-adp-wrap">
                     <ul class="nav navbar-nav left-sidebar-menu-pro">
-                        
+
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Trang Chính</span></a>
+                            <a href="{{ url('/admin') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Trang Chính</span></a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ url('product') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-book"></i> <span class="mini-dn">Sản Phẩm</span></a>
+                            <a href="{{ url('admin/sanpham') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-book"></i> <span class="mini-dn">Sản Phẩm</span></a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-tag"></i> <span class="mini-dn">Thể Loại</span></a>
+                            <a href="{{ url('admin/theloai') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-tag"></i> <span class="mini-dn">Thể Loại</span></a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-pencil"></i> <span class="mini-dn">Tác Giả</span></a>
+                            <a href="{{ url('admin/tacgia') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-pencil"></i> <span class="mini-dn">Tác Giả</span></a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-copyright-mark"></i> <span class="mini-dn">Nhà Xuất Bản</span></a>
+                            <a href="{{ url('admin/nxb') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-copyright-mark"></i> <span class="mini-dn">Nhà Xuất Bản</span></a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ url('chargeship') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-transfer"></i> <span class="mini-dn">Phí Ship</span></a>
+                            <a href="{{ url('admin/phiship') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-transfer"></i> <span class="mini-dn">Phí Ship</span></a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-user"></i> <span class="mini-dn">Khách Hàng</span></a>
+                            <a href="{{ url('admin/khachhang') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-user"></i> <span class="mini-dn">Khách Hàng</span></a>
                         </li>
 
                         <li class="nav-item">
@@ -104,9 +104,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-credit-card"></i> <span class="mini-dn">HT Thanh Toán</span></a>
+                            <a href="{{ url('admin/hinhthucthanhtoan') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-credit-card"></i> <span class="mini-dn">HT Thanh Toán</span></a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </nav>
@@ -305,7 +305,7 @@
         </div>
     </div>
 
-        
+
         <!-- Footer Start-->
         <div class="footer-copyright-area">
             <div class="container-fluid">

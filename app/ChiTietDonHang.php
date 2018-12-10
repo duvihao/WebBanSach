@@ -18,5 +18,5 @@ class ChiTietDonHang extends Model
     public function sanpham() {
         return $this->hasMany('App\SanPham');
     }
-    
+
 }
