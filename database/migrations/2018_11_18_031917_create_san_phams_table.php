@@ -27,6 +27,7 @@ class CreateSanPhamsTable extends Migration
             $table->string('mota');
             $table->string('loaibia');
             $table->string('kichthuoc');
+            $table->integer('gia');
             $table->string('alias');
             $table->integer('trangthai');
             $table->timestamps();
