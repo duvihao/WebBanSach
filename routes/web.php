@@ -15,22 +15,19 @@ Route::get('/admin', function () {
     return view('admin.master');
 });
 
-Route::get('admin/theloai', function(){
-    return view('admin.theloai.index');
-});
+/* The Loai */
+Route::get('admin/theloai', ['as' => 'indexTheLoai', 'uses' => 'TheLoaiController@getTheLoais']);
 
-Route::get('admin/theloai/add', function(){
-    return view('admin.theloai.add');
-});
+Route::post('admin/theloai/add', ['as' => 'postAddTheLoai', 'uses' => 'TheLoaiController@addTheLoai']);
+Route::get('admin/theloai/add', ['as' => 'getAddTheLoai', function(){ return view ('admin.theloai.add');}]);
 
-Route::get('admin/tacgia', function(){
-    return view('admin.tacgia.index');
-});
+/* Tac Gia */
+Route::get('admin/tacgia', ['as' => 'indexTacGia', 'uses' => 'TacGiaController@getTacGias']);
 
-Route::get('admin/tacgia/add', function(){
-    return view('admin.tacgia.add');
-});
+Route::post('admin/tacgia/add', ['as' => 'postAddTacGia', 'uses' => 'TacGiaController@addTacGia']);
+Route::get('admin/tacgia/add', ['as' => 'getAddTacGia', function(){ return view ('admin.tacgia.add');}]);
 
+/* NXB */
 Route::get('admin/nxb', function(){
     return view('admin.nxb.index');
 });
@@ -39,6 +36,7 @@ Route::get('admin/nxb/add', function(){
     return view('admin.nxb.add');
 });
 
+/* San Pham*/
 Route::get('admin/sanpham', function(){
     return view('admin.sanpham.index');
 });
@@ -47,14 +45,17 @@ Route::get('admin/sanpham/add', function(){
 	return view('admin.sanpham.add');
 });
 
+/* Khach Hang */
 Route::get('admin/khachhang', function(){
     return view('admin.khachhang.index');
 });
 
+/* Phi Ship */
 Route::get('admin/phiship', function(){
 	return view('admin.phiship.config');
 });
 
+/* HTTT */
 Route::get('admin/hinhthucthanhtoan', function(){
     return view('admin.hinhthucthanhtoan.index');
 });

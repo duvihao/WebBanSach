@@ -73,17 +73,23 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
+                                    @foreach($tacgias as $tacgia)
                                     <tr>
                                         <td></td>
-                                        <td>1</td>
-                                        <td>Web Development</td>
-                                        <td>admin@uttara.com</td>
-                                        <td>+8801962067309</td>
+                                        <td>{{ $tacgia->matg }}</td>
+                                        <td>{{ $tacgia->tentg }}</td>
+                                        <td>{{ $tacgia->ngaysinh }}</td>
+                                        <td>@if($tacgia->gioitinh == 0) Nam
+                                            @else Nữ
+                                            @endif
+                                        </td>
                                         <td class="datatable-ct">
                                             <a class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
                                             <a class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
+                                    @endforeach
 
                                     </tbody>
                                 </table>

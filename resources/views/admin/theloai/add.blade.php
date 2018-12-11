@@ -53,14 +53,15 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="all-form-element-inner">
-                                            <form action="#">
+                                            <form method="post" action="{{ route('postAddTheLoai') }}">
+                                                @csrf
                                                 <div class="form-group-inner">
                                                     <div class="row">
                                                         <div class="col-lg-2">
                                                             <label class="login2 pull-right pull-right-pro">Tên thể loại</label>
                                                         </div>
                                                         <div class="col-lg-8">
-                                                            <input type="text" class="form-control" />
+                                                            <input type="text" class="form-control" name="tentl" />
                                                         </div>
                                                     </div>
                                                 </div>

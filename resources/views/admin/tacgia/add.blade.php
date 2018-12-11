@@ -53,14 +53,15 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="all-form-element-inner">
-                                            <form action="#">
+                                            <form action="{{ route('postAddTacGia') }}" method="post">
+                                                @csrf
                                                 <div class="form-group-inner">
                                                     <div class="row">
                                                         <div class="col-lg-2">
                                                             <label class="login2 pull-right pull-right-pro">Tên tác giả</label>
                                                         </div>
                                                         <div class="col-lg-8">
-                                                            <input type="text" class="form-control" />
+                                                            <input type="text" class="form-control" name="tentg" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -73,7 +74,7 @@
                                                             <div class="data-custon-pick" id="data_1">
                                                                 <div class="input-group date">
                                                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control" name="ngaysinh">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -87,9 +88,9 @@
                                                         </div>
                                                         <div class="col-lg-8">
                                                             <div class="form-select-list">
-                                                                <select class="form-control custom-select-value" name="account">
-                                                                    <option>Nam</option>
-                                                                    <option>Nữ</option>
+                                                                <select class="form-control custom-select-value" name="gioitinh">
+                                                                    <option value="0">Nam</option>
+                                                                    <option value="1">Nữ</option>
                                                                 </select>
                                                             </div>
                                                         </div>
