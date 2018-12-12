@@ -1,6 +1,6 @@
 (function ($) {
  "use strict";
- 
+
 	 $('#data_1 .input-group.date').datepicker({
 		todayBtn: "linked",
 		keyboardNavigation: false,
@@ -15,7 +15,7 @@
 		keyboardNavigation: false,
 		forceParse: false,
 		autoclose: true,
-		format: "dd/mm/yyyy"
+		format: "yyyy-mm-dd"
 	});
 
 	$('#data_3 .input-group.date').datepicker({
@@ -42,7 +42,7 @@
 	});
 
 
-	
-	
- 
-})(jQuery); 
+
+
+
+})(jQuery);

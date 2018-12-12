@@ -28,22 +28,16 @@ Route::post('admin/tacgia/add', ['as' => 'postAddTacGia', 'uses' => 'TacGiaContr
 Route::get('admin/tacgia/add', ['as' => 'getAddTacGia', function(){ return view ('admin.tacgia.add');}]);
 
 /* NXB */
-Route::get('admin/nxb', function(){
-    return view('admin.nxb.index');
-});
+Route::get('admin/nxb', ['as' => 'indexNXB', 'uses' => 'NXBController@getNXBs']);
 
-Route::get('admin/nxb/add', function(){
-    return view('admin.nxb.add');
-});
+Route::post('admin/nxb/add', ['as' => 'postAddNXB', 'uses' => 'NXBController@addNXB']);
+Route::get('admin/nxb/add', ['as' => 'getAddNXB', function(){ return view ('admin.nxb.add');}]);
 
 /* San Pham*/
-Route::get('admin/sanpham', function(){
-    return view('admin.sanpham.index');
-});
+Route::get('admin/sanpham', ['as' => 'indexSanPham', 'uses' => 'SanPhamController@getSanPhams']);
 
-Route::get('admin/sanpham/add', function(){
-	return view('admin.sanpham.add');
-});
+Route::post('admin/sanpham/add', ['as' => 'postAddSanPham', 'uses' => 'SanPhamController@addSanPham']);
+Route::get('admin/sanpham/add', ['as' => 'getAddSanPham', 'uses' => 'SanPhamController@getInfos']);
 
 /* Khach Hang */
 Route::get('admin/khachhang', function(){

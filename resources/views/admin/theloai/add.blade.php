@@ -72,9 +72,9 @@
                                                             <div class="col-lg-2"></div>
                                                             <div class="col-lg-8">
                                                                 <div class="login-horizental cancel-wp pull-left">
-                                                                    <button class="btn btn-danger" type="submit">
+                                                                    <a class="btn btn-danger" href="{{ url() -> previous() }}">
                                                                         <i class="glyphicon glyphicon-remove"></i> Hủy
-                                                                    </button>
+                                                                    </a>
                                                                     <button class="btn btn-success" type="submit">
                                                                         <i class="glyphicon glyphicon-floppy-disk"></i> Lưu
                                                                     </button>

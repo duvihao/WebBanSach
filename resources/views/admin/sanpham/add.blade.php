@@ -53,14 +53,15 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="all-form-element-inner">
-                                                    <form action="#">
+                                                    <form action="{{ route('postAddSanPham') }}" method="post">
+                                                        @csrf
                                                         <div class="form-group-inner">
                                                             <div class="row">
                                                                 <div class="col-lg-2">
                                                                     <label class="login2 pull-right pull-right-pro">Tên sách</label>
                                                                 </div>
                                                                 <div class="col-lg-8">
-                                                                    <input type="text" class="form-control" />
+                                                                    <input type="text" class="form-control" name="tensp" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -70,7 +71,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Số trang</label>
                                                                 </div>
                                                                 <div class="col-lg-8">
-                                                                    <input type="text" class="form-control" />
+                                                                    <input type="number" class="form-control" name="sotrang" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -80,7 +81,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Loại bìa</label>
                                                                 </div>
                                                                 <div class="col-lg-8">
-                                                                    <input type="text" class="form-control" />
+                                                                    <input type="text" class="form-control" name="loaibia" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -90,7 +91,10 @@
                                                                     <label class="login2 pull-right pull-right-pro">Kích thước</label>
                                                                 </div>
                                                                 <div class="col-lg-8">
-                                                                    <input type="text" class="form-control" />
+                                                                    <input type="text" class="form-control" name="kichthuoc" />
+                                                                </div>
+                                                                <div class="col-lg-1">
+                                                                    <label class="login2 pull-right pull-right-pro">(cm)</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -100,7 +104,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Tái bản</label>
                                                                 </div>
                                                                 <div class="col-lg-8">
-                                                                    <input type="number" class="form-control" />
+                                                                    <input type="number" class="form-control" name="taiban" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -110,9 +114,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Số lượng</label>
                                                                 </div>
                                                                 <div class="col-lg-8">
-                                                                    <div class="touchspin-inner">
-                                                                        <input class="touchspin1" type="number" value="" name="demo1">
-                                                                    </div>
+                                                                    <input class="form-control" type="number" value="" name="soluong">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -122,7 +124,10 @@
                                                                     <label class="login2 pull-right pull-right-pro">Giá sách</label>
                                                                 </div>
                                                                 <div class="col-lg-8">
-                                                                    <input type="number" class="form-control" />
+                                                                    <input type="number" class="form-control" name="gia" />
+                                                                </div>
+                                                                <div class="col-lg-1">
+                                                                    <label class="login2 pull-right pull-right-pro">(VNĐ)</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -135,7 +140,7 @@
                                                                     <div class="data-custon-pick" id="data_1">
                                                                         <div class="input-group date">
                                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                                            <input type="text" class="form-control" value="">
+                                                                            <input type="text" class="form-control" value="" name="ngayxb">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -148,16 +153,15 @@
                                                                 </div>
                                                                 <div class="col-lg-8">
                                                                     <div class="form-select-list">
-                                                                        <select class="form-control custom-select-value" name="account">
-                                                                            <option>Select 1</option>
-                                                                            <option>Select 2</option>
-                                                                            <option>Select 3</option>
-                                                                            <option>Select 4</option>
+                                                                        <select class="form-control custom-select-value" name="matg">
+                                                                            @foreach($infos['tacgias'] as $tacgia)
+                                                                                <option value="{{ $tacgia->matg }}">{{ $tacgia->tentg }}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-1">
-                                                                    <a href="{{ url('admin/tacgia/add') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm tác giả</a>
+                                                                    <a href="{{ route('getAddTacGia') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm tác giả</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -168,16 +172,15 @@
                                                                 </div>
                                                                 <div class="col-lg-8">
                                                                     <div class="form-select-list">
-                                                                        <select class="form-control custom-select-value" name="account">
-                                                                            <option>Select 1</option>
-                                                                            <option>Select 2</option>
-                                                                            <option>Select 3</option>
-                                                                            <option>Select 4</option>
+                                                                        <select class="form-control custom-select-value" name="manxb">
+                                                                            @foreach($infos['nxbs'] as $nxb)
+                                                                                <option value="{{ $nxb->manxb }}">{{ $nxb->tennxb }}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-1">
-                                                                    <a href="{{ url('admin/nxb/add') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm NXB</a>
+                                                                    <a href="{{ route('getAddNXB') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm NXB</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -188,16 +191,15 @@
                                                                 </div>
                                                                 <div class="col-lg-8">
                                                                     <div class="form-select-list">
-                                                                        <select class="form-control custom-select-value" name="account">
-                                                                            <option>Select 1</option>
-                                                                            <option>Select 2</option>
-                                                                            <option>Select 3</option>
-                                                                            <option>Select 4</option>
+                                                                        <select class="form-control custom-select-value" name="matl">
+                                                                            @foreach($infos['theloais'] as $theloai)
+                                                                                <option value="{{ $theloai->matl }}">{{ $theloai->tentl }}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-1">
-                                                                    <a href="{{ url('admin/theloai/add') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm thể loại</a>
+                                                                    <a href="{{ route('getAddTheLoai') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm thể loại</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -216,7 +218,7 @@
                                                                                 Chọn tệp
                                                                                 <input type="file" onchange="document.getElementById('prepend-big-btn').value = this.value;">
                                                                             </div>
-                                                                            <input type="text" id="prepend-big-btn" placeholder="Không có tệp nào được chọn">
+                                                                            <input type="text" id="prepend-big-btn" placeholder="Không có tệp nào được chọn" name="hinhanh" >
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -228,7 +230,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Giới thiệu sách</label>
                                                                 </div>
                                                                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                                                                    <textarea style="float: left;" name="message" rows="7" cols="110"></textarea>
+                                                                    <textarea style="float: left;" name="mota" rows="7" cols="110"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -238,9 +240,9 @@
                                                                     <div class="col-lg-2"></div>
                                                                     <div class="col-lg-8">
                                                                         <div class="login-horizental cancel-wp pull-left">
-                                                                            <button class="btn btn-danger" type="submit">
+                                                                            <a class="btn btn-danger" href="{{ url() -> previous() }}">
                                                                                 <i class="glyphicon glyphicon-remove"></i> Hủy
-                                                                            </button>
+                                                                            </a>
                                                                             <button class="btn btn-success" type="submit">
                                                                             <i class="glyphicon glyphicon-floppy-disk"></i> Lưu
                                                                             </button>

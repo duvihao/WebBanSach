@@ -53,14 +53,15 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="all-form-element-inner">
-                                            <form action="#">
+                                            <form action="{{ route('postAddNXB') }}" method="post">
+                                                @csrf
                                                 <div class="form-group-inner">
                                                     <div class="row">
                                                         <div class="col-lg-2">
                                                             <label class="login2 pull-right pull-right-pro">Tên NXB</label>
                                                         </div>
                                                         <div class="col-lg-8">
-                                                            <input type="text" class="form-control" />
+                                                            <input type="text" class="form-control" name="tennxb" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -71,7 +72,7 @@
                                                             <label class="login2 pull-right pull-right-pro">Địa chỉ</label>
                                                         </div>
                                                         <div class="col-lg-8">
-                                                            <input type="text" class="form-control" />
+                                                            <input type="text" class="form-control" name="diachi" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -82,7 +83,7 @@
                                                             <label class="login2 pull-right pull-right-pro">Số ĐT</label>
                                                         </div>
                                                         <div class="col-lg-8">
-                                                            <input type="text" class="form-control" />
+                                                            <input type="text" class="form-control" name="sodt" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,9 +94,9 @@
                                                             <div class="col-lg-2"></div>
                                                             <div class="col-lg-8">
                                                                 <div class="login-horizental cancel-wp pull-left">
-                                                                    <button class="btn btn-danger" type="submit">
+                                                                    <a class="btn btn-danger" href="{{ url() -> previous() }}">
                                                                         <i class="glyphicon glyphicon-remove"></i> Hủy
-                                                                    </button>
+                                                                    </a>
                                                                     <button class="btn btn-success" type="submit">
                                                                         <i class="glyphicon glyphicon-floppy-disk"></i> Lưu
                                                                     </button>
