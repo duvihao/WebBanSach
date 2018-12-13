@@ -58,44 +58,47 @@
                                         <option value="selected">Export Selected</option>
                                     </select>
                                 </div>
-                                <div style="float: right;">
+
+                                <!--<div style="float: right;">
                                     <a href="{{ url('sanpham') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm Khách Hàng</a>
-                                </div>
+                                </div>-->
+
                                 <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                     <thead>
                                     <tr>
-                                        <th data-field="state"></th>
-                                        <th data-field="makh">ID</th>
-                                        <th data-field="ten">Project</th>
-                                        <th data-field="diachi">Email</th>
-                                        <th data-field="sodt">Phone</th>
-                                        <th data-field="ngaysinh">Company</th>
-                                        <th data-field="gioitinh">Completed</th>
-                                        <th data-field="email">Task</th>
-                                        <th data-field="xu">Date</th>
-                                        <th data-field="trangthai">Price</th>
-                                        <th data-field="action">Action</th>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="makh">Mã KH</th>
+                                        <th data-field="ten">Tên KH</th>
+                                        <th data-field="diachi">Địa Chỉ</th>
+                                        <th data-field="sodt">Số ĐT</th>
+                                        <th data-field="ngaysinh">Ngày Sinh</th>
+                                        <th data-field="gioitinh">Giới Tính</th>
+                                        <th data-field="email">Email</th>
+                                        <th data-field="action"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
+                                    @foreach($khachhangs as $khachhang)
                                     <tr>
                                         <td></td>
-                                        <td>1</td>
-                                        <td>Web Development</td>
-                                        <td>admin@uttara.com</td>
-                                        <td>+8801962067309</td>
-                                        <td>Aber Ltd.</td>
-                                        <td class="datatable-ct"><span class="pie">1/6</span>
+                                        <td>{{ $khachhang->makh }}</td>
+                                        <td>{{ $khachhang->ten }}</td>
+                                        <td>{{ $khachhang->diachi }}</td>
+                                        <td>{{ $khachhang->sodt }}</td>
+                                        <td>{{ $khachhang->ngaysinh }}</td>
+                                        <td>
+                                            @if ($khachhang->gioitinh == 0) Nam
+                                            @else Nữ
+                                            @endif
                                         </td>
-                                        <td>10%</td>
-                                        <td>Jul 14, 2018</td>
-                                        <td>$5455</td>
+                                        <td>{{ $kahchhang->email }}</td>
                                         <td class="datatable-ct">
                                             <a class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
                                             <a class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
+                                    @endforeach
 
                                     </tbody>
                                 </table>

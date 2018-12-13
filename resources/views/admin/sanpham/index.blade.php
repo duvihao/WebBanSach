@@ -63,7 +63,7 @@
                                         <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                             <thead>
                                                 <tr>
-                                                    <th data-field="state"></th>
+                                                    <th data-field="state" data-checkbox="true"></th>
                                                     <th data-field="masp">Mã Sách</th>
                                                     <th data-field="tensp">Tên Sách</th>
                                                     <th data-field="soluong">Số Lượng</th>

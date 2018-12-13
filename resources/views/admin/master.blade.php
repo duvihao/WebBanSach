@@ -70,9 +70,8 @@
                 <div class="sidebar-header">
                     <a href="#"><img src="{{ URL::asset('img/message/1.jpg') }}" alt="" />
                     </a>
-                    <h3>Andrar Son</h3>
-                    <p>Developer</p>
-                    <strong>AP+</strong>
+                    <h3>Admin 1</h3>
+                    <strong>AD</strong>
                 </div>
                 <div class="left-custom-menu-adp-wrap">
                     <ul class="nav navbar-nav left-sidebar-menu-pro">
@@ -106,11 +105,15 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-gift"></i> <span class="mini-dn">Khuyến Mãi</span></a>
+                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-gift"></i> <span class="mini-dn">Đơn Hàng</span></a>
                         </li>
 
                         <li class="nav-item">
                             <a href="{{ url('admin/hinhthucthanhtoan') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-credit-card"></i> <span class="mini-dn">HT Thanh Toán</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ url('admin/hinhthucthanhtoan') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-credit-card"></i> <span class="mini-dn">Thống Kê</span></a>
                         </li>
 
                     </ul>

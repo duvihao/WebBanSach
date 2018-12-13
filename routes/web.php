@@ -40,9 +40,7 @@ Route::post('admin/sanpham/add', ['as' => 'postAddSanPham', 'uses' => 'SanPhamCo
 Route::get('admin/sanpham/add', ['as' => 'getAddSanPham', 'uses' => 'SanPhamController@getInfos']);
 
 /* Khach Hang */
-Route::get('admin/khachhang', function(){
-    return view('admin.khachhang.index');
-});
+Route::get('admin/khachhang', ['as' => 'indexKhachHang', 'uses' => 'KhachHangController@getKhachHangs']);
 
 /* Phi Ship */
 Route::get('admin/phiship', function(){
