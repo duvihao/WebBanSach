@@ -113,7 +113,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ url('admin/hinhthucthanhtoan') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-credit-card"></i> <span class="mini-dn">Thống Kê</span></a>
+                            <a href="{{ url('admin/hinhthucthanhtoan') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-object-align-bottom"></i> <span class="mini-dn">Thống Kê</span></a>
                         </li>
 
                     </ul>

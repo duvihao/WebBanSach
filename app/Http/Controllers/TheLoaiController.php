@@ -23,4 +23,20 @@ class TheLoaiController extends Controller
 
         return redirect() -> route('indexTheLoai');
     }
+
+    public function getTheLoai($matl){
+        $theloai = TheLoai::Where('matl', $matl) -> first();
+        return view('admin.theloai.edit', compact('theloai'));
+    }
+
+    public function editTheLoai(request $req, $matl){
+        TheLoai::where('matl', $matl)->update(['tentl' => $req->tentl]);
+        return redirect() -> route('indexTheLoai');
+    }
+
+    public function deleteTheLoai($matl){
+        TheLoai::where('matl', $matl)->delete();
+        return redirect()->route('indexTheLoai');
+    }
+
 }

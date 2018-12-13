@@ -24,4 +24,20 @@ class TacGiaController extends Controller
 
         return redirect() -> route('indexTacGia');
     }
+
+    public function getTacGia($matg){
+        $tacgia = TacGia::where('matg', $matg)->first();
+        return view('admin.tacgia.edit', compact('tacgia'));
+    }
+
+    public function editTacGia(Request $req, $matg){
+        TacGia::where('matg', $matg)->update(['tentg' => $req->tentg, 'ngaysinh' => $req->ngaysinh, 'gioitinh' => $req->gioitinh]);
+        return redirect()->route('indexTacGia');
+    }
+
+    public function deleteTacGia($matg){
+        TacGia::where('matg', $matg)->delete();
+        return redirect()->route('indexTacGia');
+    }
+
 }

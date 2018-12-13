@@ -24,4 +24,20 @@ class NXBController extends Controller
 
         return redirect() -> route('indexNXB');
     }
+
+    public function getNXB($manxb){
+        $nxb = NXB::where('manxb', $manxb)->first();
+        return view('admin.nxb.edit', compact('nxb'));
+    }
+
+    public function editNXB(Request $req, $manxb){
+        NXB::where('manxb', $manxb)->update(['tennxb' => $req->tennxb, 'diachi' => $req->diachi, 'sodt' => $req->sodt]);
+        return redirect()->route('indexNXB');
+    }
+
+    public function deleteNXB($manxb){
+        NXB::where('manxb', $manxb)->delete();
+        return redirect()->route('indexNXB');
+    }
+
 }

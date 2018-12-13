@@ -21,11 +21,21 @@ Route::get('admin/theloai', ['as' => 'indexTheLoai', 'uses' => 'TheLoaiControlle
 Route::post('admin/theloai/add', ['as' => 'postAddTheLoai', 'uses' => 'TheLoaiController@addTheLoai']);
 Route::get('admin/theloai/add', ['as' => 'getAddTheLoai', function(){ return view ('admin.theloai.add');}]);
 
+Route::post('admin/theloai/edit/{matl}', ['as' => 'postEditTheLoai', 'uses' => 'TheLoaiController@editTheLoai']);
+Route::get('admin/theloai/edit/{matl}', ['as' => 'getEditTheLoai', 'uses' => 'TheLoaiController@getTheLoai']);
+
+Route::get('admin/theloai/delete/{matl}', ['as' => 'deleteTheLoai', 'uses' => 'TheLoaiController@deleteTheLoai']);
+
 /* Tac Gia */
 Route::get('admin/tacgia', ['as' => 'indexTacGia', 'uses' => 'TacGiaController@getTacGias']);
 
 Route::post('admin/tacgia/add', ['as' => 'postAddTacGia', 'uses' => 'TacGiaController@addTacGia']);
 Route::get('admin/tacgia/add', ['as' => 'getAddTacGia', function(){ return view ('admin.tacgia.add');}]);
+
+Route::post('admin/tacgia/edit/{matg}', ['as' => 'postEditTacGia', 'uses' => 'TacGiaController@editTacGia']);
+Route::get('admin/tacgia/edit/{matg}', ['as' => 'getEditTacGia', 'uses' => 'TacGiaController@getTacGia']);
+
+Route::get('admin/tacgia/delete/{matg}', ['as' => 'deleteTacGia', 'uses' => 'TacGiaController@deleteTacGia']);
 
 /* NXB */
 Route::get('admin/nxb', ['as' => 'indexNXB', 'uses' => 'NXBController@getNXBs']);
@@ -33,26 +43,30 @@ Route::get('admin/nxb', ['as' => 'indexNXB', 'uses' => 'NXBController@getNXBs'])
 Route::post('admin/nxb/add', ['as' => 'postAddNXB', 'uses' => 'NXBController@addNXB']);
 Route::get('admin/nxb/add', ['as' => 'getAddNXB', function(){ return view ('admin.nxb.add');}]);
 
+Route::post('admin/nxb/edit/{manxb}', ['as' => 'postEditNXB', 'uses' => 'NXBController@editNXB']);
+Route::get('admin/nxb/edit/{manxb}', ['as' => 'getEditNXB', 'uses' => 'NXBController@getNXB']);
+
+
 /* San Pham*/
 Route::get('admin/sanpham', ['as' => 'indexSanPham', 'uses' => 'SanPhamController@getSanPhams']);
 
 Route::post('admin/sanpham/add', ['as' => 'postAddSanPham', 'uses' => 'SanPhamController@addSanPham']);
 Route::get('admin/sanpham/add', ['as' => 'getAddSanPham', 'uses' => 'SanPhamController@getInfos']);
 
+
 /* Khach Hang */
 Route::get('admin/khachhang', ['as' => 'indexKhachHang', 'uses' => 'KhachHangController@getKhachHangs']);
+
 
 /* Phi Ship */
 Route::get('admin/phiship', function(){
 	return view('admin.phiship.config');
 });
 
-/* HTTT */
-Route::get('admin/hinhthucthanhtoan', function(){
-    return view('admin.hinhthucthanhtoan.index');
-});
 
-Route::get('admin/hinhthucthanhtoan/add', function(){
-   return view('admin.hinhthucthanhtoan.add');
-});
+/* HTTT */
+Route::get('admin/hinhthucthanhtoan', ['as' => 'indexHinhThucThanhToan', 'uses' => 'HinhThucThanhToanController@getHinhThucThanhToans']);
+
+/*Route::post('admin/hinhthucthanhtoan/add', ['as' => 'postAddHinhThucThanhToan', 'uses' => 'HinhThucThanhToanController@addHinhThucThanhToan']);
+Route::get('admin/hinhthucthanhtoan/add', ['as' => 'getAddHinhThucThanhToan', function(){ return view ('admin.hinhthucthanhtoan.add');}]);*/
 

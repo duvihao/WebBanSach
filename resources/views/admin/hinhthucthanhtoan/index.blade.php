@@ -59,12 +59,12 @@
                                     </select>
                                 </div>
                                 <div style="float: right;">
-                                    <a href="{{ url('admin/hinhthucthanhtoan/add') }}" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm HT Thanh Toán</a>
+                                    <a href="#" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm HT Thanh Toán</a>
                                 </div>
                                 <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                     <thead>
                                     <tr>
-                                        <th data-field="state"></th>
+                                        <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="mahttt">Mã HT Thanh Toán</th>
                                         <th data-field="tenhttt">Tên HT Thanh Toán</th>
                                         <th data-field="action"></th>
@@ -72,15 +72,17 @@
                                     </thead>
                                     <tbody>
 
+                                    @foreach($hinhthucthanhtoans as $httt)
                                     <tr>
                                         <td></td>
-                                        <td>1</td>
-                                        <td>Web Development</td>
+                                        <td>{{ $httt->mahttt }}</td>
+                                        <td>{{ $httt->tenhttt }}</td>
                                         <td class="datatable-ct">
                                             <a class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
                                             <a class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
+                                    @endforeach
 
                                     </tbody>
                                 </table>
