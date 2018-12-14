@@ -53,7 +53,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="all-form-element-inner">
-                                                    <form action="{{ route('postAddSanPham') }}" method="post">
+                                                    <form action="{{ route('postAddSanPham') }}" method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="form-group-inner">
                                                             <div class="row">
@@ -216,9 +216,9 @@
                                                                             </label>
                                                                             <div class="file-button">
                                                                                 Chọn tệp
-                                                                                <input type="file" onchange="document.getElementById('prepend-big-btn').value = this.value;">
+                                                                                <input type="file" onchange="document.getElementById('prepend-big-btn').value = this.value;" name="hinhanh">
                                                                             </div>
-                                                                            <input type="text" id="prepend-big-btn" placeholder="Không có tệp nào được chọn" name="hinhanh" >
+                                                                            <input type="text" id="prepend-big-btn" placeholder="Không có tệp nào được chọn" >
                                                                         </div>
                                                                     </div>
                                                                 </div>

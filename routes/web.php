@@ -46,6 +46,7 @@ Route::get('admin/nxb/add', ['as' => 'getAddNXB', function(){ return view ('admi
 Route::post('admin/nxb/edit/{manxb}', ['as' => 'postEditNXB', 'uses' => 'NXBController@editNXB']);
 Route::get('admin/nxb/edit/{manxb}', ['as' => 'getEditNXB', 'uses' => 'NXBController@getNXB']);
 
+Route::get('admin/nxb/delete/{manxb}', ['as' => 'deleteNXB', 'uses' => 'NXBController@deleteNXB']);
 
 /* San Pham*/
 Route::get('admin/sanpham', ['as' => 'indexSanPham', 'uses' => 'SanPhamController@getSanPhams']);

@@ -6,6 +6,8 @@ use App\SanPham;
 use App\TacGia;
 use App\NXB;
 use App\TheLoai;
+use DateTime;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 
 class SanPhamController extends Controller
@@ -37,7 +39,14 @@ class SanPhamController extends Controller
         $sanpham->matg = $req->matg;
         $sanpham->manxb = $req->manxb;
         $sanpham->matl = $req->matl;
-        $sanpham->hinhanh = $req->hinhanh;
+
+        $filename = $req->file('hinhanh')->getClientOriginalName();
+        $now = new DateTime();
+        $datestring = $now->format('dmYHis');
+        $hinhanh = $datestring."-".$filename;
+        $req->file('hinhanh')->move('img/hinhanhsanpham', $hinhanh);
+        $sanpham->hinhanh = 'img/hinhanhsanpham'.$hinhanh;
+
         $sanpham->mota = $req->mota;
         $alias = $req->tensp;
         $sanpham->alias = $alias;

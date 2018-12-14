@@ -19,6 +19,7 @@ class TheLoaiController extends Controller
         $theloai->tentl = $req->tentl;
         $alias = $req->tentl;
         $theloai->alias = $alias;
+        $theloai->trangthai=1;
         $theloai->save();
 
         return redirect() -> route('indexTheLoai');

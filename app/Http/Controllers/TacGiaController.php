@@ -20,6 +20,7 @@ class TacGiaController extends Controller
         $tacgia->gioitinh = $req->gioitinh;
         $alias = $req->tentg;
         $tacgia->alias = $alias;
+        $tacgia->trangthai=1;
         $tacgia->save();
 
         return redirect() -> route('indexTacGia');

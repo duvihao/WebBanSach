@@ -20,8 +20,8 @@ class NXBController extends Controller
         $nxb->sodt = $req->sodt;
         $alias = $req->tennxb;
         $nxb->alias = $alias;
+        $nxb->trangthai = 1;
         $nxb->save();
-
         return redirect() -> route('indexNXB');
     }
 
