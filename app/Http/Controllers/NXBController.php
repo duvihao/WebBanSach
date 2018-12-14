@@ -18,7 +18,8 @@ class NXBController extends Controller
         $nxb->tennxb = $req->tennxb;
         $nxb->diachi = $req->diachi;
         $nxb->sodt = $req->sodt;
-        $alias = $req->tennxb;
+        $ten = $req->tennxb;
+        $alias = changeTitle($ten);
         $nxb->alias = $alias;
         $nxb->trangthai = 1;
         $nxb->save();
@@ -31,7 +32,9 @@ class NXBController extends Controller
     }
 
     public function editNXB(Request $req, $manxb){
-        NXB::where('manxb', $manxb)->update(['tennxb' => $req->tennxb, 'diachi' => $req->diachi, 'sodt' => $req->sodt]);
+        $ten = $req->tennxb;
+        $alias = changeTitle($ten);
+        NXB::where('manxb', $manxb)->update(['tennxb' => $req->tennxb, 'diachi' => $req->diachi, 'sodt' => $req->sodt, 'alias' => $alias]);
         return redirect()->route('indexNXB');
     }
 

@@ -48,8 +48,11 @@ class SanPhamController extends Controller
         $sanpham->hinhanh = 'img/hinhanhsanpham'.$hinhanh;
 
         $sanpham->mota = $req->mota;
-        $alias = $req->tensp;
+
+        $ten = $req->tensp;
+        $alias = changeTitle($ten);
         $sanpham->alias = $alias;
+
         $sanpham->trangthai = 1;
         $sanpham->save();
 
@@ -65,11 +68,22 @@ class SanPhamController extends Controller
     }
 
     public function editSanPham(Request $req, $masp){
-        SanPham::where('masp', $masp)->update(['tensp'=>$req->tensp, 'hinhanh'=>$req->hinhanh, 'soluong'=>$req->soluong,
+
+        $filename = $req->file('hinhanh')->getClientOriginalName();
+        $now = new DateTime();
+        $datestring = $now->format('dmYHis');
+        $hinh = $datestring."-".$filename;
+        $req->file('hinhanh')->move('img/hinhanhsanpham', $hinh);
+        $hinhanh = 'img/hinhanhsanpham'.$hinh;
+
+        $ten = $req->tensp;
+        $alias = changeTitle($ten);
+
+        SanPham::where('masp', $masp)->update(['tensp'=>$req->tensp, 'hinhanh'=>$hinhanh, 'soluong'=>$req->soluong,
                                                 'matl'=>$req->matl, 'sotrang'=>$req->sotrang, 'manxb'=>$req->manxb,
                                                 'ngayxb'=>$req->ngayxb, 'matg'=>$req->matg, 'taiban'=>$req->taiban,
                                                 'mota'=>$req->mota, 'loaibia'=>$req->loaibia, 'kichthuoc'=>$req->kichthuoc,
-                                                'gia'=>$req->gia]);
+                                                'gia'=>$req->gia, 'alias'=>$alias]);
         return redirect()->route('indexSanPham');
     }
 

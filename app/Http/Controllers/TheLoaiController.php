@@ -17,7 +17,8 @@ class TheLoaiController extends Controller
     public function addTheLoai(Request $req){
         $theloai = new TheLoai;
         $theloai->tentl = $req->tentl;
-        $alias = $req->tentl;
+        $ten = $req->tentl;
+        $alias = changeTitle($ten);
         $theloai->alias = $alias;
         $theloai->trangthai=1;
         $theloai->save();
@@ -31,7 +32,9 @@ class TheLoaiController extends Controller
     }
 
     public function editTheLoai(request $req, $matl){
-        TheLoai::where('matl', $matl)->update(['tentl' => $req->tentl]);
+        $ten = $req->tentl;
+        $alias = changeTitle($ten);
+        TheLoai::where('matl', $matl)->update(['tentl' => $req->tentl, 'alias' => $alias]);
         return redirect() -> route('indexTheLoai');
     }
 

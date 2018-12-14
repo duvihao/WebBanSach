@@ -18,7 +18,8 @@ class TacGiaController extends Controller
         $tacgia->tentg = $req->tentg;
         $tacgia->ngaysinh = $req->ngaysinh;
         $tacgia->gioitinh = $req->gioitinh;
-        $alias = $req->tentg;
+        $ten = $req->tentg;
+        $alias = changeTitle($ten);
         $tacgia->alias = $alias;
         $tacgia->trangthai=1;
         $tacgia->save();
@@ -32,7 +33,9 @@ class TacGiaController extends Controller
     }
 
     public function editTacGia(Request $req, $matg){
-        TacGia::where('matg', $matg)->update(['tentg' => $req->tentg, 'ngaysinh' => $req->ngaysinh, 'gioitinh' => $req->gioitinh]);
+        $ten = $req->tentg;
+        $alias = changeTitle($ten);
+        TacGia::where('matg', $matg)->update(['tentg' => $req->tentg, 'ngaysinh' => $req->ngaysinh, 'gioitinh' => $req->gioitinh, 'alias' => $alias]);
         return redirect()->route('indexTacGia');
     }
 
