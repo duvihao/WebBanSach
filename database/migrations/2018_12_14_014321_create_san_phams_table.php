@@ -18,11 +18,14 @@ class CreateSanPhamsTable extends Migration
             $table->string('tensp');
             $table->string('hinhanh');
             $table->integer('soluong');
-            $table->integer('matl')->references('matl')->on('theloai');
+            $table->integer('matl')->unsigned();
+            $table->foreign('matl')->references('matl')->on('the_loais');
             $table->integer('sotrang');
-            $table->integer('manxb')->references('manxb')->on('nxb');
+            $table->integer('manxb')->unsigned();
+            $table->foreign('manxb')->references('manxb')->on('n_x_bs');
             $table->date('ngayxb');
-            $table->integer('matg')->references('matg')->on('tacgia');
+            $table->integer('matg')->unsigned();
+            $table->foreign('matg')->references('matg')->on('tac_gias');
             $table->integer('taiban');
             $table->string('mota');
             $table->string('loaibia');

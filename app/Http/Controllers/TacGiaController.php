@@ -9,7 +9,7 @@ class TacGiaController extends Controller
 {
     //
     public function getTacGias(){
-        $data = TacGia::all();
+        $data = TacGia::where('trangthai',1)->get();
         return view ('admin.tacgia.index') -> with('tacgias', $data);
     }
 
@@ -36,7 +36,7 @@ class TacGiaController extends Controller
     }
 
     public function deleteTacGia($matg){
-        TacGia::where('matg', $matg)->delete();
+        TacGia::where('matg', $matg)->update(['trangthai'=>0]);
         return redirect()->route('indexTacGia');
     }
 

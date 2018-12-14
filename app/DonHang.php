@@ -26,5 +26,4 @@ class DonHang extends Model
     public function diachigiaohang() {
         return $this->belongsTo('App\SoDiaChi');
     }
-
 }

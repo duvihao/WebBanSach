@@ -13,7 +13,7 @@ class SanPhamController extends Controller
     //
 
     public function getSanPhams(){
-        $data = SanPham::all();
+        $data = SanPham::where('trangthai', 1)->get();
         return view ('admin.sanpham.index') -> with('sanphams', $data);
     }
 
@@ -46,4 +46,27 @@ class SanPhamController extends Controller
 
         return redirect() -> route('indexSanPham');
     }
+
+    public function getSanPham($masp){
+        $data['sanpham'] = SanPham::where('masp', $masp)->first();
+        $data['tacgias'] = TacGia::all();
+        $data['nxbs'] = NXB::all();
+        $data['theloais'] = TheLoai::all();
+        return view('admin.sanpham.edit')->with('infos', $data);
+    }
+
+    public function editSanPham(Request $req, $masp){
+        SanPham::where('masp', $masp)->update(['tensp'=>$req->tensp, 'hinhanh'=>$req->hinhanh, 'soluong'=>$req->soluong,
+                                                'matl'=>$req->matl, 'sotrang'=>$req->sotrang, 'manxb'=>$req->manxb,
+                                                'ngayxb'=>$req->ngayxb, 'matg'=>$req->matg, 'taiban'=>$req->taiban,
+                                                'mota'=>$req->mota, 'loaibia'=>$req->loaibia, 'kichthuoc'=>$req->kichthuoc,
+                                                'gia'=>$req->gia]);
+        return redirect()->route('indexSanPham');
+    }
+
+    public function deleteSanPham($masp){
+        SanPham::where('masp', $masp)->update(['trangthai'=>0]);
+        return redirect()->route('indexSanPham');
+    }
+
 }

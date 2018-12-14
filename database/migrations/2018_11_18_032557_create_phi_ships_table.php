@@ -20,6 +20,7 @@ class CreatePhiShipsTable extends Migration
             $table->string('quanhuyen');
             $table->string('loaigiaohang');
             $table->integer('sotien');
+            $table->integer('trangthai');
             $table->timestamps();
         });
     }

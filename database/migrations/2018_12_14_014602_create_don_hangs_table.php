@@ -15,13 +15,16 @@ class CreateDonHangsTable extends Migration
     {
         Schema::create('don_hangs', function (Blueprint $table) {
             $table->increments('madh');
-            $table->integer('makh')->references('makh')->on('khachhang');
+            $table->integer('makh')->unsigned();
+            $table->foreign('makh')->references('makh')->on('khach_hangs');
             $table->integer('tongtien');
-            $table->integer('hinhthucthanhtoan')->references('mahtttt')->on('hinhthucthanhtoan');
+            $table->integer('hinhthucthanhtoan')->unsigned();
+            $table->foreign('hinhthucthanhtoan')->references('mahttt')->on('hinh_thuc_thanh_toans');
             $table->integer('xusudung');
             $table->integer('giamgia');
             $table->integer('phiship');
-            $table->integer('diachigiaohang')->references('madc')->on('sodiachi');
+            $table->integer('diachigiaohang')->unsigned();
+            $table->foreign('diachigiaohang')->references('madc')->on('so_dia_chis');
             $table->integer('trangthai');
             $table->timestamps();
         });

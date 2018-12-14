@@ -9,7 +9,7 @@ class NXBController extends Controller
 {
     //
     public function getNXBs(){
-        $data = NXB::all();
+        $data = NXB::where('trangthai', 1)->get();
         return view ('admin.nxb.index') -> with('nxbs', $data);
     }
 
@@ -36,7 +36,7 @@ class NXBController extends Controller
     }
 
     public function deleteNXB($manxb){
-        NXB::where('manxb', $manxb)->delete();
+        NXB::where('manxb', $manxb)->update(['trangthai'=>0]);
         return redirect()->route('indexNXB');
     }
 

@@ -19,6 +19,7 @@ class CreateNXBsTable extends Migration
             $table->string('diachi');
             $table->string('sodt');
             $table->string('alias');
+            $table->integer('trangthai');
             $table->timestamps();
         });
     }

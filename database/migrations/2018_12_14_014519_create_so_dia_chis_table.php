@@ -15,7 +15,8 @@ class CreateSoDiaChisTable extends Migration
     {
         Schema::create('so_dia_chis', function (Blueprint $table) {
             $table->increments('madc');
-            $table->integer('makh')->references('makh')->on('khachhang');
+            $table->integer('makh')->unsigned();
+            $table->foreign('makh')->references('makh')->on('khach_hangs');
             $table->integer('sonha');
             $table->string('phuongxa');
             $table->string('quanhuyen');

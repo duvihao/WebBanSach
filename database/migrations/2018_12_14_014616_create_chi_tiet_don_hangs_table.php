@@ -15,8 +15,10 @@ class CreateChiTietDonHangsTable extends Migration
     {
         Schema::create('chi_tiet_don_hangs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('madh')->references('madh')->on('donhang');
-            $table->integer('masp')->references('masp')->on('sanpham');
+            $table->integer('madh')->unsigned();
+            $table->foreign('madh')->references('madh')->on('don_hangs');
+            $table->integer('masp')->unsigned();
+            $table->foreign('masp')->references('masp')->on('san_phams');
             $table->integer('soluong');
             $table->integer('dongia');
             $table->integer('thanhtien');

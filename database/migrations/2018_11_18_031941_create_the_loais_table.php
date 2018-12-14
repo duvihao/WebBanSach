@@ -17,6 +17,7 @@ class CreateTheLoaisTable extends Migration
             $table->increments('matl');
             $table->string('tentl');
             $table->string('alias');
+            $table->integer('trangthai');
             $table->timestamps();
         });
     }

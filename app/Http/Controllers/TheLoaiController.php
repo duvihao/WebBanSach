@@ -10,7 +10,7 @@ class TheLoaiController extends Controller
 {
     //
     public function getTheLoais(){
-        $data = TheLoai::all();
+        $data = TheLoai::where('trangthai', 1)->get();
         return view ('admin.theloai.index') -> with('theloais', $data);
     }
 
@@ -35,7 +35,7 @@ class TheLoaiController extends Controller
     }
 
     public function deleteTheLoai($matl){
-        TheLoai::where('matl', $matl)->delete();
+        TheLoai::where('matl', $matl)->update(['trangthai'=>0]);
         return redirect()->route('indexTheLoai');
     }
 

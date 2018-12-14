@@ -53,6 +53,9 @@ Route::get('admin/sanpham', ['as' => 'indexSanPham', 'uses' => 'SanPhamControlle
 Route::post('admin/sanpham/add', ['as' => 'postAddSanPham', 'uses' => 'SanPhamController@addSanPham']);
 Route::get('admin/sanpham/add', ['as' => 'getAddSanPham', 'uses' => 'SanPhamController@getInfos']);
 
+Route::post('admin/sanpham/edit/{masp}', ['as' => 'postEditSanPham', 'uses' => 'SanPhamController@editSanPham']);
+Route::get('admin/sanpham/edit/{masp}', ['as' => 'getEditSanPham', 'uses' => 'SanPhamController@getSanPham']);
+
 
 /* Khach Hang */
 Route::get('admin/khachhang', ['as' => 'indexKhachHang', 'uses' => 'KhachHangController@getKhachHangs']);
