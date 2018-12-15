@@ -8,6 +8,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use App\KhachHang;
 use App\SoDiaChi;
+use App\User;
 use Hash;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -62,7 +63,8 @@ class ClientController extends Controller
     	}
     }
     public function getLogout(){
-    	Auth::guard('khach_hangs')->logout();
+        Auth::logout();
+    	//Auth::guard('khach_hangs')->logout();
     	return redirect()->route('getIndex');
     }
 }
