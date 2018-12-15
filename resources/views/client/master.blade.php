@@ -94,8 +94,8 @@
 								<li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i> Logout</a></li>
 								<h2>Hello</h2>
 								@else
-								<!--<li><a href="{{route('getLogin')}}"><i class="fa fa-lock"></i> Login</a></li>-->
-								<li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i> Logout</a></li>
+								<li><a href="{{route('getLogin')}}"><i class="fa fa-lock"></i> Login</a></li>
+								<!--<li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i> Logout</a></li>-->
 								@endif
 							</ul>
 						</div>
