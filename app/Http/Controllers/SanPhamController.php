@@ -45,7 +45,7 @@ class SanPhamController extends Controller
         $datestring = $now->format('dmYHis');
         $hinhanh = $datestring."-".$filename;
         $req->file('hinhanh')->move('img/hinhanhsanpham', $hinhanh);
-        $sanpham->hinhanh = 'img/hinhanhsanpham'.$hinhanh;
+        $sanpham->hinhanh = $hinhanh;
 
         $sanpham->mota = $req->mota;
 
@@ -74,7 +74,7 @@ class SanPhamController extends Controller
         $datestring = $now->format('dmYHis');
         $hinh = $datestring."-".$filename;
         $req->file('hinhanh')->move('img/hinhanhsanpham', $hinh);
-        $hinhanh = 'img/hinhanhsanpham'.$hinh;
+        $hinhanh = $hinh;
 
         $ten = $req->tensp;
         $alias = changeTitle($ten);

@@ -78,19 +78,21 @@
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
+									@foreach($listsp as $product)
 										<div class="productinfo text-center">
-											<img src="{{ URL::asset('client/images/home/product1.jpg') }}" alt="" />
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
+											<!--<img src="{{ URL::asset('client/images/home/product1.jpg') }}" alt="" />-->
+											<h2>{{ $product->gia }}</h2>
+											<p>{{ $product->tensp }}</p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
-										<div class="product-overlay">
+									@endforeach
+										<!--<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>$56</h2>
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-										</div>
+										</div>-->
 								</div>
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">

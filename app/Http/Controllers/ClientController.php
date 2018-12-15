@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\KhachHang;
 use App\SoDiaChi;
 use App\User;
+use App\SanPham;
 use Hash;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -17,7 +18,8 @@ class ClientController extends Controller
     use AuthenticatesUsers;
 
 	public function getIndex(){
-		return view('client.index');
+        //$listsp=SanPham::where('trangthai', 1)->get();
+        return view('client.index');
 	}
     public function getRegister(){
     	return view('client.register');
