@@ -22,7 +22,7 @@ class CreateChiTietDonHangsTable extends Migration
             $table->integer('soluong');
             $table->integer('dongia');
             $table->integer('thanhtien');
-            $table->integer('giamgia');
+            $table->integer('giamgia')->nullable();
             $table->integer('trangthai');
             $table->timestamps();
         });

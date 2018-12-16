@@ -8,7 +8,7 @@ class DonHang extends Model
 {
     //
     protected $fillable = [
-        'madonhang', 'makh', 'tongtien', 'hinhthucthanhtoan', 'xusudung', 'giamgia', 'phiship', 'diachigiaohang', 'trangthai'
+        'madh', 'makh', 'tongtien', 'hinhthucthanhtoan', 'xusudung', 'giamgia', 'phiship', 'diachigiaohang', 'trangthai'
     ];
 
     public function chitietdonhang() {

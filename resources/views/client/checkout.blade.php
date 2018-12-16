@@ -17,7 +17,7 @@
 			<div class="step-one">
 				<h2 class="heading">Chọn địa chỉ giao hàng</h2>
 			</div>
-			<form method="post" action="">
+			<form method="post" action="{{ route('postCheckout') }}">
 				@csrf
 			<div class="shopper-informations">
 				<div class="row">
@@ -34,7 +34,7 @@
 								@endif
 								<li>Điện thoại: {{Auth::guard('khach_hangs')->user()->sdt}}</li>
 							</ul>
-								<button class="btn btn-primary"><input type="radio" name="diachigiaohang" value="{{ $diachi->madc }}"> Chọn địa chỉ này</button>
+								<button class="btn btn-primary"><input type="radio" name="rddiachigiaohang" value="{{ $diachi->madc }}"> Chọn địa chỉ này</button>
 								<a class="btn btn-default check_out" href="">Sửa</a>
 						</div>
 						</center>
