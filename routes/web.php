@@ -13,13 +13,15 @@
 
 
 Route::get('/', ['as' => 'getIndex', 'uses' => 'ClientController@getIndex']);
-Route::get('/product/detail', function() {
-	return view('client.product-details');
-});
+
+Route::get('/product/detail/{masp}', ['as' => 'getProductDetails', 'uses' => 'ClientController@getProductDetails']);
+
 Route::get('register', ['as' => 'getRegister', 'uses' => 'ClientController@getRegister']);
 Route::post('register', ['as' => 'postRegister', 'uses' => 'ClientController@postRegister']);
+
 Route::get('login', ['as' => 'getLogin', 'uses' => 'ClientController@getLogin']);
 Route::post('login', ['as' => 'postLogin', 'uses' => 'ClientController@postLogin']);
+
 Route::get('logout', ['as' => 'getLogout', 'uses' => 'ClientController@getLogout']);
 
 Route::get('/admin', function () {

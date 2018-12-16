@@ -78,4 +78,10 @@ class ClientController extends Controller
     	//Auth::guard('khach_hangs')->logout();
     	return redirect()->route('getIndex');
     }
+
+    public function getProductDetails($masp){
+        $data['product'] = SanPham::where('masp', $masp)->first();
+        $data['listproducts'] = SanPham::where('matl', $data['product']->matl)->get();
+        return view('client.product-details')->with('product', $data);
+    }
 }
