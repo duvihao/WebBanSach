@@ -36,7 +36,8 @@ Route::get('giohang',['as'=>'giohang','uses'=>'ClientController@giohang']);
 Route::get('xoagiohang/{id}',['as'=>'xoagiohang','uses'=>'ClientController@xoagiohang']);
 Route::get('capnhatgiohang/{id}',['as'=>'capnhatgiohang','uses'=>'ClientController@capnhatgiohang']);
 
-Route::get('/checkout', ['as' => 'getCheckout', 'uses' => 'ClientController@getCheckout'] );
+Route::get('checkout', ['as' => 'getCheckout', 'uses' => 'ClientController@getCheckout'] );
+Route::get('checkout', ['as' => 'postCheckout', 'uses' => 'ClientController@postCheckout'] );
 
 Route::get('/admin', function () {
     return view('admin.master');

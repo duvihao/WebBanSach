@@ -67,8 +67,8 @@
 							<li>Total <span>{!! $total !!}</span></li>
 						</ul>
 						<center>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+							<a class="btn btn-default update" href="{{ route('getIndex') }}">Tiếp tục mua hàng</a>
+							<a class="btn btn-default check_out" href="">Đặt hàng</a>
 						</center>	
 					</div>
 				</div>

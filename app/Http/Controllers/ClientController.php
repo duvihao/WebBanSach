@@ -84,7 +84,14 @@ class ClientController extends Controller
     }
 
     public function getCheckout(){
-        return view('client.checkout-new');
+        $idkh=Auth::guard('khach_hangs')->user()->id;
+    	$listdiachi=SoDiaChi::where('makh',$idkh)->get();
+    	$content=Cart::content();
+    	$total=Cart::total();
+    	return view('client.checkout',compact('listdiachi','content','total'));
+    }
+    public function postCheckout(){
+    	
     }
 
     public function getAllProducts(){
@@ -141,5 +148,8 @@ class ClientController extends Controller
     		Cart::update($id,$qty);
     		echo "oke";
     	}
+    }
+    public function laySoDiaChi(){
+    	
     }
 }
