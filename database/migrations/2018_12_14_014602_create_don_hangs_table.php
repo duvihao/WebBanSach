@@ -16,7 +16,7 @@ class CreateDonHangsTable extends Migration
         Schema::create('don_hangs', function (Blueprint $table) {
             $table->increments('madh');
             $table->integer('makh')->unsigned();
-            $table->foreign('idkh')->references('id')->on('khach_hangs');
+            $table->foreign('makh')->references('id')->on('khach_hangs');
             $table->integer('tongtien');
             $table->integer('hinhthucthanhtoan')->unsigned();
             $table->foreign('hinhthucthanhtoan')->references('mahttt')->on('hinh_thuc_thanh_toans');

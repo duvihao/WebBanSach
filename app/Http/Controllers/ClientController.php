@@ -49,7 +49,7 @@ class ClientController extends Controller
         $dataclient=KhachHang::all()->last();
 
         $address=new SoDiaChi();
-        $address->makh =  $dataclient->makh;
+        $address->makh =  $dataclient->id;
         $address->sonha=$request->client_address;
         $address->phuongxa=$request->client_ward;
         $address->quanhuyen=$request->client_district;

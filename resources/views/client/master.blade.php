@@ -89,9 +89,9 @@
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="{{ route('getCheckout') }}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                                @if(\Auth::guard('khach_hangs')->check())
+                                @if(Auth::guard('khach_hangs')->check())
 								<li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
-								<h2>Hello</h2>
+								<h2>Hello {{Auth::guard('khach_hangs')->user()->ten}}</h2>
 								@else
 								<li><a href="{{route('getLogin')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
 								<!--<li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i> Logout</a></li>-->
