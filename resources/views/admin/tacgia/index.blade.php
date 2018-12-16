@@ -85,7 +85,7 @@
                                             @endif
                                         </td>
                                         <td class="datatable-ct">
-                                            <a href="{{ route('getEditTacGia', $tacgia->matg) }}" class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{ route('getEditTacGia', [$tacgia->matg, $tacgia->alias]) }}" class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
                                             <a href="{{ route('deleteTacGia', $tacgia->matg) }}" class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>

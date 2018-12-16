@@ -81,7 +81,7 @@
                                         <td>{{ $nxb->diachi }}</td>
                                         <td>{{ $nxb->sodt }}</td>
                                         <td class="datatable-ct">
-                                            <a href="{{ route('getEditNXB', $nxb->manxb) }}" class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{ route('getEditNXB', [$nxb->manxb, $nxb->alias]) }}" class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
                                             <a href="{{ route('deleteNXB', $nxb->manxb) }}" class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>

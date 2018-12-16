@@ -14,7 +14,7 @@ use App\SanPham;
 use App\NXB;
 use Hash;
 use Cart;
-use App\Auth;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class ClientController extends Controller
 {
@@ -56,7 +56,7 @@ class ClientController extends Controller
         $address->thanhpho=$request->client_city;
         $address->trangthai=1;
         $address->save();
-    	return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
+    	return redirect()->route('getLogin');
     }
     protected function guard(){
       return Auth::guard('khach_hangs');
@@ -67,6 +67,7 @@ class ClientController extends Controller
     }
     public function postLogin(LoginRequest $req){
     	$credentials = array('email'=>$req->loginEmail,'password'=>$req->loginPass);
+        Auth::guard('khach_hangs')->attempt($credentials);
     	if(Auth::guard('khach_hangs')->attempt($credentials)){
     		return redirect()->route('getIndex');
     	}
@@ -75,9 +76,12 @@ class ClientController extends Controller
     	}
     }
     public function getLogout(){
-        Auth::logout();
-    	//Auth::guard('khach_hangs')->logout();
+    	Auth::guard('khach_hangs')->logout();
     	return redirect()->route('getIndex');
+    }
+
+    public function getCheckout(){
+        return view('client.checkout-new');
     }
 
     public function getProductDetails($masp)
@@ -86,7 +90,7 @@ class ClientController extends Controller
         $data['listproducts'] = SanPham::where('matl', $data['product']->matl)->get();
         return view('client.product-details')->with('product', $data);
     }
-    
+
     public function giohang($id){
         $product_buy=SanPham::where('masp',$id)->first();
         Cart::add(array('id'=>$id,'name'=>$product_buy->tensp,'qty'=>1,'price'=>$product_buy->gia,'options'=>array('img'=>$product_buy->hinhanh)));
