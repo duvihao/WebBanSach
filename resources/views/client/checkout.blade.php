@@ -35,7 +35,7 @@
 								<li>Điện thoại: {{Auth::guard('khach_hangs')->user()->sdt}}</li>
 							</ul>
 								<button class="btn btn-primary"><input type="radio" name="rddiachigiaohang" value="{{ $diachi->madc }}"> Chọn địa chỉ này</button>
-								<a class="btn btn-default check_out" href="">Sửa</a>
+								<a class="btn btn-default check_out" href="{!! url('suadiachi',[$diachi->madc]) !!}">Sửa</a>
 						</div>
 						</center>
 					</div>
