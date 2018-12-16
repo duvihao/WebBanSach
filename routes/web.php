@@ -39,6 +39,12 @@ Route::get('capnhatgiohang/{id}',['as'=>'capnhatgiohang','uses'=>'ClientControll
 Route::get('checkout', ['as' => 'getCheckout', 'uses' => 'ClientController@getCheckout'] );
 Route::post('checkout', ['as' => 'postCheckout', 'uses' => 'ClientController@postCheckout'] );
 
+Route::get('themdiachi', ['as' => 'getThemdiachi', 'uses' => 'ClientController@getThemdiachi']);
+Route::post('themdiachi', ['as' => 'postThemdiachi', 'uses' => 'ClientController@postThemdiachi']);
+
+Route::get('suadiachi/{id}', ['as' => 'getSuadiachi', 'uses' => 'ClientController@getSuadiachi']);
+Route::post('suadiachi/{id}', ['as' => 'postSuadiachi', 'uses' => 'ClientController@postSuadiachi']);
+
 Route::get('/admin', function () {
     return view('admin.master');
 });
