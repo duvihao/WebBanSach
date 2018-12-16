@@ -13,6 +13,7 @@ use App\User;
 use App\SanPham;
 use App\NXB;
 use Hash;
+use Cart;
 use App\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class ClientController extends Controller
@@ -77,5 +78,11 @@ class ClientController extends Controller
         Auth::logout();
     	//Auth::guard('khach_hangs')->logout();
     	return redirect()->route('getIndex');
+    }
+    public function giohang($id){
+        $product_buy=SanPham::where('masp',$id)->first();
+        Cart::add(array('id'=>$id,'name'=>$product_buy->tensp,'qty'=>1,'price'=>$product_buy->gia,'options'=>array('img'=>$product_buy->hinhanh)));
+        $content=Cart::content();
+        print_r($content);
     }
 }

@@ -21,6 +21,7 @@ Route::post('register', ['as' => 'postRegister', 'uses' => 'ClientController@pos
 Route::get('login', ['as' => 'getLogin', 'uses' => 'ClientController@getLogin']);
 Route::post('login', ['as' => 'postLogin', 'uses' => 'ClientController@postLogin']);
 Route::get('logout', ['as' => 'getLogout', 'uses' => 'ClientController@getLogout']);
+Route::get('themgiohang/{id}/{tensanpham}',['as'=>'themgiohang','uses'=>'ClientController@giohang']);
 
 Route::get('/admin', function () {
     return view('admin.master');

@@ -83,7 +83,7 @@
 											<img src="{{ $product->hinhanh }}" alt="" />
 											<h2>{{ number_format($product->gia, 0)}}đ</h2>
 											<p>{{ $product->tensp }}</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+											<a href="{!! url('themgiohang',[$product->masp,$product->alias]) !!}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 										</div>
 										<!--<div class="product-overlay">
 											<div class="overlay-content">
