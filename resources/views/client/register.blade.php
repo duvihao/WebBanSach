@@ -5,13 +5,13 @@
 			<div class="row">
 				<div class="col-sm-9">
 					<div class="signup-form"><!--sign up form-->
-						<h2>New User Signup!</h2>
+						<h2>Đăng ký</h2>
 						<form action="{{route('postRegister')}}" method="post">
 							@csrf
 							@if(Session::has('thanhcong'))
 								<div class="alert alert-successs">{{Session::get('thanhcong')}}</div>
 							@endif
-							<input type="email" name="client_email" placeholder="Email Address"/>
+							<input type="email" name="client_email" placeholder="Email"/>
 							@if ($errors->has('client_email'))
                                 <span class="help-block">
                                      <strong>{{ $errors->first('client_email') }}</strong>
@@ -89,19 +89,19 @@
                                      <strong>{{ $errors->first('client_sex') }}</strong>
                                 </span>
                             @endif
-							<input type="password" name="client_pass" placeholder="Password"/>
+							<input type="password" name="client_pass" placeholder="Mật khẩu"/>
 							@if ($errors->has('client_pass'))
                                 <span class="help-block">
                                      <strong>{{ $errors->first('client_pass') }}</strong>
                                 </span>
                             @endif
-							<input type="password" name="client_repass" placeholder="Re Password"/>
+							<input type="password" name="client_repass" placeholder="Nhập lại mật khẩu"/>
 							@if ($errors->has('client_repass'))
                                 <span class="help-block">
                                      <strong>{{ $errors->first('client_repass') }}</strong>
                                 </span>
                             @endif
-							<button type="submit" class="btn btn-default">Signup</button>
+							<button type="submit" class="btn btn-default">Đăng ký</button>
 						</form>
 					</div><!--/sign up form-->
 				</div>

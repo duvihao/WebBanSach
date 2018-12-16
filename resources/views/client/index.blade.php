@@ -13,40 +13,38 @@
 
 						<div class="carousel-inner">
 							<div class="item active">
-								<div class="col-sm-6">
+								<!--<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>Free E-Commerce Template</h2>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="{{ URL::asset('client/images/home/girl1.jpg') }}" class="girl img-responsive" alt="" />
-									<img src="{{ URL::asset('client/images/home/pricing.png') }}"  class="pricing" alt="" />
+								</div>-->
+								<div class="col-sm-12">
+									<img src="{!! asset('img/slide/Slide_01.png') !!}" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							<div class="item">
-								<div class="col-sm-6">
+								<!--<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>100% Responsive Design</h2>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="{{ URL::asset('client/images/home/girl2.jpg') }}" class="girl img-responsive" alt="" />
-									<img src="{{ URL::asset('client/images/home/pricing.png') }}"  class="pricing" alt="" />
+								</div>-->
+								<div class="col-sm-12">
+									<img src="{!! asset('img/slide/Slide_02.jpg') !!}" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 
 							<div class="item">
+                                <!--
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
 									<h2>Free Ecommerce Template</h2>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="{{ URL::asset('client/images/home/girl3.jpg') }}" class="girl img-responsive" alt="" />
-									<img src="{{ URL::asset('client/images/home/pricing.png') }}" class="pricing" alt="" />
+								</div>-->
+								<div class="col-sm-12">
+									<img src="{!! asset('img/slide/Slide_03.jpg') !!}" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 
@@ -78,13 +76,13 @@
                         @foreach($listsp as $product)
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
-								<div class="single-products">
+								<div class="single-products" >
 										<div class="productinfo text-center">
-											<img src="{{ $product->hinhanh }}" alt="" />
+											<img src="{!! asset('img/hinhanhsanpham/'.$product->hinhanh) !!}" alt="" />
 											<h2>{{ number_format($product->gia, 0)}}đ</h2>
-											<p>{{ $product->tensp }}</p>
+											<p><a href="{{ route('getProductDetails', [$product->masp, $product->alias]) }}">{{ $product->tensp }}</a></p>
 											<a href="{!! url('themgiohang',[$product->masp,$product->alias]) !!}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
+    										</div>
 										<!--<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>{{ number_format($product->gia, 0)}}đ</h2>
@@ -106,7 +104,7 @@
 					</div><!--features_items-->
 
 					<div class="category-tab"><!--category-tab-->
-						<div class="col-sm-12">
+						<!--<div class="col-sm-12">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
 								<li><a href="#blazers" data-toggle="tab">Blazers</a></li>
@@ -390,11 +388,11 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 					</div><!--/category-tab-->
 
 					<div class="recommended_items"><!--recommended_items-->
-						<h2 class="title text-center">recommended items</h2>
+						<h2 class="title text-center">Sản Phẩm Gợi Ý</h2>
 
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">

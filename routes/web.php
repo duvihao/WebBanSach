@@ -13,15 +13,19 @@
 
 
 Route::get('/', ['as' => 'getIndex', 'uses' => 'ClientController@getIndex']);
-Route::get('/product/detail', function() {
-	return view('client.product-details');
-});
+
+Route::get('/product/detail/{masp}/{alias}', ['as' => 'getProductDetails', 'uses' => 'ClientController@getProductDetails']);
+
 Route::get('register', ['as' => 'getRegister', 'uses' => 'ClientController@getRegister']);
 Route::post('register', ['as' => 'postRegister', 'uses' => 'ClientController@postRegister']);
+
 Route::get('login', ['as' => 'getLogin', 'uses' => 'ClientController@getLogin']);
 Route::post('login', ['as' => 'postLogin', 'uses' => 'ClientController@postLogin']);
+
 Route::get('logout', ['as' => 'getLogout', 'uses' => 'ClientController@getLogout']);
 Route::get('themgiohang/{id}/{tensanpham}',['as'=>'themgiohang','uses'=>'ClientController@giohang']);
+
+Route::get('/checkout', ['as' => 'getCheckout', 'uses' => 'ClientController@getCheckout'] );
 
 Route::get('/admin', function () {
     return view('admin.master');
@@ -34,7 +38,7 @@ Route::post('admin/theloai/add', ['as' => 'postAddTheLoai', 'uses' => 'TheLoaiCo
 Route::get('admin/theloai/add', ['as' => 'getAddTheLoai', function(){ return view ('admin.theloai.add');}]);
 
 Route::post('admin/theloai/edit/{matl}', ['as' => 'postEditTheLoai', 'uses' => 'TheLoaiController@editTheLoai']);
-Route::get('admin/theloai/edit/{matl}', ['as' => 'getEditTheLoai', 'uses' => 'TheLoaiController@getTheLoai']);
+Route::get('admin/theloai/edit/{matl}/{alias}', ['as' => 'getEditTheLoai', 'uses' => 'TheLoaiController@getTheLoai']);
 
 Route::get('admin/theloai/delete/{matl}', ['as' => 'deleteTheLoai', 'uses' => 'TheLoaiController@deleteTheLoai']);
 
@@ -45,7 +49,7 @@ Route::post('admin/tacgia/add', ['as' => 'postAddTacGia', 'uses' => 'TacGiaContr
 Route::get('admin/tacgia/add', ['as' => 'getAddTacGia', function(){ return view ('admin.tacgia.add');}]);
 
 Route::post('admin/tacgia/edit/{matg}', ['as' => 'postEditTacGia', 'uses' => 'TacGiaController@editTacGia']);
-Route::get('admin/tacgia/edit/{matg}', ['as' => 'getEditTacGia', 'uses' => 'TacGiaController@getTacGia']);
+Route::get('admin/tacgia/edit/{matg}/{alias}', ['as' => 'getEditTacGia', 'uses' => 'TacGiaController@getTacGia']);
 
 Route::get('admin/tacgia/delete/{matg}', ['as' => 'deleteTacGia', 'uses' => 'TacGiaController@deleteTacGia']);
 
@@ -56,7 +60,7 @@ Route::post('admin/nxb/add', ['as' => 'postAddNXB', 'uses' => 'NXBController@add
 Route::get('admin/nxb/add', ['as' => 'getAddNXB', function(){ return view ('admin.nxb.add');}]);
 
 Route::post('admin/nxb/edit/{manxb}', ['as' => 'postEditNXB', 'uses' => 'NXBController@editNXB']);
-Route::get('admin/nxb/edit/{manxb}', ['as' => 'getEditNXB', 'uses' => 'NXBController@getNXB']);
+Route::get('admin/nxb/edit/{manxb}/{alias}', ['as' => 'getEditNXB', 'uses' => 'NXBController@getNXB']);
 
 Route::get('admin/nxb/delete/{manxb}', ['as' => 'deleteNXB', 'uses' => 'NXBController@deleteNXB']);
 
@@ -67,7 +71,7 @@ Route::post('admin/sanpham/add', ['as' => 'postAddSanPham', 'uses' => 'SanPhamCo
 Route::get('admin/sanpham/add', ['as' => 'getAddSanPham', 'uses' => 'SanPhamController@getInfos']);
 
 Route::post('admin/sanpham/edit/{masp}', ['as' => 'postEditSanPham', 'uses' => 'SanPhamController@editSanPham']);
-Route::get('admin/sanpham/edit/{masp}', ['as' => 'getEditSanPham', 'uses' => 'SanPhamController@getSanPham']);
+Route::get('admin/sanpham/edit/{masp}/{alias}', ['as' => 'getEditSanPham', 'uses' => 'SanPhamController@getSanPham']);
 
 
 /* Khach Hang */
