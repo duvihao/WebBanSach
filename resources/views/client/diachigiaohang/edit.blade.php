@@ -41,7 +41,11 @@
                         	</select></li>
                         	<li><select name="cliedit_district" placeholder="Quận/Huyện"/>
                         		@for($a=1;$a<=10;$a++)
+<<<<<<< HEAD
 									@if($address->quanhuyen == $a)
+=======
+									             @if($address->quanhuyen == $a)
+>>>>>>> master
                             	<option value="{{ $a }}" selected>Quận {{ $a }}</option>
                             		@else
                             	<option value="{{ $a }}">Quận {{ $a }}</option>
