@@ -69,21 +69,22 @@ class SanPhamController extends Controller
 
     public function editSanPham(Request $req, $masp){
 
-        $filename = $req->file('hinhanh')->getClientOriginalName();
-        $now = new DateTime();
-        $datestring = $now->format('dmYHis');
-        $hinh = $datestring."-".$filename;
-        $req->file('hinhanh')->move('img/hinhanhsanpham/', $hinh);
-        $hinhanh = $hinh;
-
         $ten = $req->tensp;
         $alias = changeTitle($ten);
 
-        SanPham::where('masp', $masp)->update(['tensp'=>$req->tensp, 'hinhanh'=>$hinhanh, 'soluong'=>$req->soluong,
+        SanPham::where('masp', $masp)->update(['tensp'=>$req->tensp, 'soluong'=>$req->soluong,
                                                 'matl'=>$req->matl, 'sotrang'=>$req->sotrang, 'manxb'=>$req->manxb,
                                                 'ngayxb'=>$req->ngayxb, 'matg'=>$req->matg, 'taiban'=>$req->taiban,
                                                 'mota'=>$req->mota, 'loaibia'=>$req->loaibia, 'kichthuoc'=>$req->kichthuoc,
                                                 'gia'=>$req->gia, 'alias'=>$alias]);
+        if($req->file('hinhanh') != null){
+            $filename = $req->file('hinhanh')->getClientOriginalName();
+            $now = new DateTime();
+            $datestring = $now->format('dmYHis');
+            $hinh = $datestring."-".$filename;
+            $req->file('hinhanh')->move('img/hinhanhsanpham/', $hinh);
+            SanPham::where('masp', $masp)->update(['hinhanh'=>$hinh]);
+        }
         return redirect()->route('indexSanPham');
     }
 

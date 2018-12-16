@@ -1,11 +1,14 @@
                     <div class="left-sidebar">
+                        <h2><a href="{{ route('getAllProducts') }}">Sản Phẩm</a></h2>
+                        </div>
+                        <div class="left-sidebar">
 						<h2>Thể Loại</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 
                             @foreach(App\TheLoai::all() as $theloai)
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">{{ $theloai->tentl }}</a></h4>
+									<h4 class="panel-title"><a href="{{ route('getProductsbyGerne', [$theloai->matl,$theloai->alias]) }}">{{ $theloai->tentl }}</a></h4>
 								</div>
 							</div>
                             @endforeach
@@ -16,7 +19,7 @@
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
                                     @foreach(App\NXB::all() as $nxb)
-                                        <li><a href="#">{{ $nxb->tennxb }}</a></li>
+                                        <li><a href="{{ route('getProductsbyPublisher', [$nxb->manxb,$nxb->alias]) }}">{{ $nxb->tennxb }}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -27,7 +30,7 @@
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
                                     @foreach(App\TacGia::all() as $tacgia)
-                                        <li><a href="#">{{ $tacgia->tentg }}</a></li>
+                                        <li><a href="{{ route('getProductsbyAuthor', [$tacgia->matg,$tacgia->alias]) }}">{{ $tacgia->tentg }}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
