@@ -44,7 +44,7 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="{{ route('getCheckout') }}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li><a href="{{ route('giohang') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 @if(Auth::guard('khach_hangs')->check())
                                     <li><a href="#"><i class="fa fa-user"></i>Hello {{Auth::guard('khach_hangs')->user()->ten}}</a></li>
 								    <li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
@@ -150,5 +150,6 @@
 	<script src="{{ URL::asset('client/js/price-range.js') }}"></script>
     <script src="{{ URL::asset('client/js/jquery.prettyPhoto.js') }}"></script>
     <script src="{{ URL::asset('client/js/main.js') }}"></script>
+    <script src="{{ URL::asset('client/js/myscript.js') }}"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ class KhachHang extends Authenticatable
 {
     //
     protected $fillable = [
-        'makh', 'ten', 'diachi', 'sodt', 'ngaysinh', 'gioitinh', 'email', 'password', 'xu', 'trangthai'
+        'id', 'ten', 'diachi', 'sdt', 'ngaysinh', 'gioitinh', 'email', 'password', 'xu', 'trangthai'
     ];
 
     protected $hidden = [

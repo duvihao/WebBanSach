@@ -85,14 +85,14 @@
                                         <td>{{ $khachhang->makh }}</td>
                                         <td>{{ $khachhang->ten }}</td>
                                         <td>{{ $khachhang->diachi }}</td>
-                                        <td>{{ $khachhang->sodt }}</td>
+                                        <td>{{ $khachhang->sdt }}</td>
                                         <td>{{ $khachhang->ngaysinh }}</td>
                                         <td>
-                                            @if ($khachhang->gioitinh == 0) Nam
+                                            @if ($khachhang->gioitinh == 1) Nam
                                             @else Nữ
                                             @endif
                                         </td>
-                                        <td>{{ $kahchhang->email }}</td>
+                                        <td>{{ $khachhang->email }}</td>
                                         <td class="datatable-ct">
                                             <a class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
                                             <a class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
