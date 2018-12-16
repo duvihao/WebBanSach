@@ -8,8 +8,8 @@
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Tất cả sản phẩm</h2>
-                    @foreach($listproducts as $product)
+                    <h2 class="title text-center">Nhà xuất bản {{ $listproducts['tennxb'] }}</h2>
+                    @foreach($listproducts['listsp'] as $product)
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products" >
@@ -25,7 +25,7 @@
                     @endforeach
 
                 </div><!--features_items-->
-                {{ $listproducts->links() }}
+                {{ $listproducts['listsp']->links() }}
 
             </div>
         </div>

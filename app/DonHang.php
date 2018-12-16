@@ -8,8 +8,11 @@ class DonHang extends Model
 {
     //
     protected $fillable = [
-        'madonhang', 'makh', 'tongtien', 'hinhthucthanhtoan', 'xusudung', 'giamgia', 'phiship', 'diachigiaohang', 'trangthai'
+        'madh', 'makh', 'tongtien', 'hinhthucthanhtoan', 'xusudung', 'giamgia', 'phiship', 'diachigiaohang', 'trangthai'
     ];
+
+    protected $primaryKey = 'madh';
+    public $timestamps = true;
 
     public function chitietdonhang() {
         return $this->hasMany('App\ChiTietDonHang');
@@ -23,7 +26,4 @@ class DonHang extends Model
         return $this->belongsTo('App\HinhThucThanhToan');
     }
 
-    public function diachigiaohang() {
-        return $this->belongsTo('App\SoDiaChi');
-    }
 }

@@ -17,7 +17,7 @@ class CreateSoDiaChisTable extends Migration
             $table->increments('madc');
             $table->integer('makh')->unsigned();
             $table->foreign('makh')->references('id')->on('khach_hangs');
-            $table->integer('sonha');
+            $table->string('sonha');
             $table->string('phuongxa');
             $table->string('quanhuyen');
             $table->string('thanhpho');

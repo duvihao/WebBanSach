@@ -12,9 +12,17 @@
 */
 
 
+Route::get('timkiem', ['as'=>'getSearch', 'uses'=>'ClientController@searchProduct']);
+
 Route::get('/', ['as' => 'getIndex', 'uses' => 'ClientController@getIndex']);
 
 Route::get('sanpham', ['as'=>'getAllProducts', 'uses'=>'ClientController@getAllProducts']);
+
+Route::get('theloai', ['as'=>'getAllGernes', 'uses'=>'ClientController@getAllGernes']);
+
+Route::get('nxb', ['as'=>'getAllPublishers', 'uses'=>'ClientController@getAllPublishers']);
+
+Route::get('tacgia', ['as'=>'getAllAuthors', 'uses'=>'ClientController@getAllAuthors']);
 
 Route::get('theloai/{matl}/{alias}', ['as'=>'getProductsbyGerne', 'uses'=>'ClientController@getProductsbyGerne']);
 
@@ -90,6 +98,10 @@ Route::get('admin/khachhang', ['as' => 'indexKhachHang', 'uses' => 'KhachHangCon
 Route::get('admin/phiship', function(){
 	return view('admin.phiship.config');
 });
+
+
+/* Don Hang */
+Route::resource('dh','DonHangController');
 
 
 /* HTTT */

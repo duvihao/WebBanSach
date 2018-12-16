@@ -105,15 +105,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-gift"></i> <span class="mini-dn">Đơn Hàng</span></a>
+                            <a href="{{url('http://localhost:8888/WebBanSach/public/dh/')}}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-gift"></i> <span class="mini-dn">Đơn Hàng</span></a>
                         </li>
 
                         <li class="nav-item">
                             <a href="{{ url('admin/hinhthucthanhtoan') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-credit-card"></i> <span class="mini-dn">HT Thanh Toán</span></a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ url('admin/hinhthucthanhtoan') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-object-align-bottom"></i> <span class="mini-dn">Thống Kê</span></a>
                         </li>
 
                     </ul>
