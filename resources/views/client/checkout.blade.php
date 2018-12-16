@@ -46,7 +46,7 @@
 							<ul>
 								<li>Bạn muốn giao hàng đến địa chỉ khác?</li>
 							</ul>
-								<a class="btn btn-default update" href=""><i class="fa fa-plus"></i> Thêm địa chỉ mới</a>
+								<a class="btn btn-default update" href="{{ route('getThemdiachi') }}"><i class="fa fa-plus"></i> Thêm địa chỉ mới</a>
 						</div>
 						</center>
 					</div>
@@ -233,4 +233,3 @@
 	@endif
 
 @endsection
-
