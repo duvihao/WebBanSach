@@ -88,7 +88,7 @@
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="{{ route('getCheckout') }}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li><a href="{{ route('giohang') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 @if(Auth::guard('khach_hangs')->check())
 								<li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
 								<h2>Hello {{Auth::guard('khach_hangs')->user()->ten}}</h2>
@@ -242,5 +242,6 @@
 	<script src="{{ URL::asset('client/js/price-range.js') }}"></script>
     <script src="{{ URL::asset('client/js/jquery.prettyPhoto.js') }}"></script>
     <script src="{{ URL::asset('client/js/main.js') }}"></script>
+    <script src="{{ URL::asset('client/js/myscript.js') }}"></script>
 </body>
 </html>

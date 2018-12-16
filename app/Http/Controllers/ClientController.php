@@ -15,6 +15,7 @@ use App\NXB;
 use Hash;
 use Cart;
 use Auth;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class ClientController extends Controller
 {
@@ -91,10 +92,32 @@ class ClientController extends Controller
         return view('client.product-details')->with('product', $data);
     }
 
-    public function giohang($id){
+    public function themgiohang($id){
         $product_buy=SanPham::where('masp',$id)->first();
         Cart::add(array('id'=>$id,'name'=>$product_buy->tensp,'qty'=>1,'price'=>$product_buy->gia,'options'=>array('img'=>$product_buy->hinhanh)));
         $content=Cart::content();
-        print_r($content);
+        return redirect()->back();
+    }
+    public function giohang(){
+    	$content=Cart::content();
+    	$total=Cart::total();
+    	return view('client.cart',compact('content','total'));
+    }
+    public function xoagiohang($id){
+    	Cart::remove($id);
+    	return redirect()->route('giohang');
+    }
+    /*public function capnhatgiohang($id){
+    	$qty=Input::get('quantity');
+    	Cart::update($id,$qty);
+    	return redirect()->route('giohang');
+    }*/
+    public function capnhatgiohang(){
+    	if(Request::ajax()){
+    		$id = Request::get('id');
+    		$qty = Request::get('qty');
+    		Cart::update($id,$qty);
+    		echo "oke";
+    	}
     }
 }
