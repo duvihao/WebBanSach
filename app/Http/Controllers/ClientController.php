@@ -175,7 +175,33 @@ class ClientController extends Controller
     		echo "oke";
     	}
     }
-    public function laySoDiaChi(){
-    	
+    public function getThemdiachi(){
+    	return view('client.diachigiaohang.add');
+    }
+    public function postThemdiachi(Request $req){
+    	$address=new SoDiaChi();
+        $address->makh =  Auth::guard('khach_hangs')->user()->id;
+        $address->sonha=$req->cli_address;
+        $address->phuongxa=$req->cli_ward;
+        $address->quanhuyen=$req->cli_district;
+        $address->thanhpho=$req->cli_city;
+        $address->trangthai=1;
+        $address->save();
+       	return redirect()->route('getCheckout');
+    }
+
+    public function getSuadiachi($id){
+    	$idkh=Auth::guard('khach_hangs')->user()->id;
+    	$address=SoDiaChi::where('makh',$idkh)->where('madc',$id)->first();
+    	return view('client.diachigiaohang.edit',compact('address'));
+    }
+    public function postSuadiachi(Request $req,$id){
+    	$diachi=SoDiaChi::find($id);
+    	$diachi->sonha=$req->cliedit_address;
+    	$diachi->phuongxa=$req->cliedit_ward;
+    	$diachi->quanhuyen=$req->cliedit_district;
+    	$diachi->thanhpho=$req->cliedit_city;
+    	$diachi->save();
+    	return redirect()->route('getCheckout');
     }
 }

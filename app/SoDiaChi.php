@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SoDiaChi extends Model
 {
+	protected $primaryKey = 'madc';
     //
     protected $fillable = [
         'madc', 'makh', 'sonha', 'phuongxa', 'quanhuyen', 'thanhpho', 'trangthai'
