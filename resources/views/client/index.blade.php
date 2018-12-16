@@ -82,9 +82,9 @@
 										<div class="productinfo text-center">
 											<img src="{{ ($product->hinhanh }}" alt="" />
 											<h2>{{ number_format($product->gia, 0)}}đ</h2>
-                                            <p><a href="{{ route('getProductDetails', $product->masp) }}">{{ $product->tensp }}</a></p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
+											<p><a href="{{ route('getProductDetails', $product->masp) }}">{{ $product->tensp }}</a></p>
+											<a href="{!! url('themgiohang',[$product->masp,$product->alias]) !!}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+    										</div>
 										<!--<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>{{ number_format($product->gia, 0)}}đ</h2>

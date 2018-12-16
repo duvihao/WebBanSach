@@ -13,6 +13,7 @@ use App\User;
 use App\SanPham;
 use App\NXB;
 use Hash;
+use Cart;
 use App\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class ClientController extends Controller
@@ -79,9 +80,17 @@ class ClientController extends Controller
     	return redirect()->route('getIndex');
     }
 
-    public function getProductDetails($masp){
+    public function getProductDetails($masp)
+    {
         $data['product'] = SanPham::where('masp', $masp)->first();
         $data['listproducts'] = SanPham::where('matl', $data['product']->matl)->get();
         return view('client.product-details')->with('product', $data);
+    }
+    
+    public function giohang($id){
+        $product_buy=SanPham::where('masp',$id)->first();
+        Cart::add(array('id'=>$id,'name'=>$product_buy->tensp,'qty'=>1,'price'=>$product_buy->gia,'options'=>array('img'=>$product_buy->hinhanh)));
+        $content=Cart::content();
+        print_r($content);
     }
 }
