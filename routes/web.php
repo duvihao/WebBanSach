@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::get('/', ['as' => 'getIndex', 'uses' => 'ClientController@getIndex']);
 Route::get('/product/detail', function() {
 	return view('client.product-details');

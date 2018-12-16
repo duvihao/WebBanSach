@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\TheLoai;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
@@ -10,16 +11,24 @@ use App\KhachHang;
 use App\SoDiaChi;
 use App\User;
 use App\SanPham;
+use App\NXB;
 use Hash;
-use Auth;
+use App\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class ClientController extends Controller
 {
     use AuthenticatesUsers;
 
+    public function getMaster(){
+        $data['listtl'] = TheLoai::where('trangthai', 1)->get();
+        $data['listnxb'] = NXB::where('trangthai', 1)->get();
+        $data['listtg'] = TacGia::where('trangthai', 1)->get();
+        return view('client.blade')->with('infos', $data);
+    }
+
 	public function getIndex(){
-        //$listsp=SanPham::where('trangthai', 1)->get();
-        return view('client.index');
+        $listsp=SanPham::where('trangthai', 1)->get();
+        return view('client.index')->with('listsp', $listsp);
 	}
     public function getRegister(){
     	return view('client.register');
