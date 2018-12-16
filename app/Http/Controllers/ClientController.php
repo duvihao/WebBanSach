@@ -11,6 +11,8 @@ use App\KhachHang;
 use App\SoDiaChi;
 use App\User;
 use App\SanPham;
+use App\DonHang;
+use App\ChiTietDonHang;
 use App\NXB;
 use Hash;
 use Cart;
@@ -91,8 +93,31 @@ class ClientController extends Controller
     	$subtotal=Cart::subtotal();
     	return view('client.checkout',compact('listdiachi','content','subtotal'));
     }
-    public function postCheckout(){
-    	
+    
+    public function postCheckout(Request $req){
+    	$donhang=new DonHang();
+    	$donhang->makh=Auth::guard('khach_hangs')->user()->id;
+    	$donhang->tongtien=Cart::subtotal();
+    	$donhang->hinhthucthanhtoan=$req->optPaidradio;
+    	$donhang->phiship=$req->optShipradio;
+    	$donhang->diachigiaohang=$req->rddiachigiaohang;
+    	$donhang->trangthai=1;
+    	$donhang->save();
+
+    	$datadonhang=DonHang::all()->last();
+
+    	$listitem=Cart::content();
+    	foreach($listitem as $item){
+    		$ctdonhang=new ChiTietDonHang();
+    		$ctdonhang->madh=$datadonhang->madh;
+    		$ctdonhang->masp=$item->id;
+    		$ctdonhang->soluong=$item->qty;
+    		$ctdonhang->dongia=$item->price;
+    		$ctdonhang->thanhtien=$item->price*$item->qty;
+    		$ctdonhang->trangthai=1;
+    		$ctdonhang->save();
+    	}
+    	return redirect()->route('getIndex');
     }
 
     public function getAllProducts(){
@@ -130,7 +155,7 @@ class ClientController extends Controller
     }
     public function giohang(){
     	$content=Cart::content();
-    	$total=Cart::total();
+    	$total=Cart::subtotal();
     	return view('client.cart',compact('content','total'));
     }
     public function xoagiohang($id){
