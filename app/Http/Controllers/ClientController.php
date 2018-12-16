@@ -87,8 +87,9 @@ class ClientController extends Controller
         $idkh=Auth::guard('khach_hangs')->user()->id;
     	$listdiachi=SoDiaChi::where('makh',$idkh)->get();
     	$content=Cart::content();
-    	$total=Cart::total();
-    	return view('client.checkout',compact('listdiachi','content','total'));
+    	//$total=Cart::total();
+    	$subtotal=Cart::subtotal();
+    	return view('client.checkout',compact('listdiachi','content','subtotal'));
     }
     public function postCheckout(){
     	

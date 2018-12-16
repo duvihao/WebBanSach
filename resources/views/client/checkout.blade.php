@@ -54,19 +54,26 @@
 			</div>
 
 			<div class="step-one">
-				<h2 class="heading">Chọn hình thức thanh toán và giao hàng</h2>
+				<h2 class="heading">Chọn hình thức giao hàng</h2>
 			</div>
 			<div class="shopper-informations">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-12">
 						<div class="total_area">
 							<ul>
-								<li><label><input type="radio" name="optShipradio" value="12000"checked> <i class="fa fa-truck"></i> Giao hàng tiêu chuẩn (12000 đ)</label></li>
-								<li><label><input type="radio" name="optShipradio" value="29000"><i class="fa fa-truck"></i>  Giao hàng nhanh (29000 đ)</label></li>
+								<li><label><input type="radio" name="optShipradio" value="12000" checked> <i class="fa fa-truck"></i> Giao hàng tiêu chuẩn (12000 đ)</label></li>
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-6">
+				</div>
+			</div>
+
+			<div class="step-one">
+				<h2 class="heading">Chọn hình thức thanh toán</h2>
+			</div>
+			<div class="shopper-informations">
+				<div class="row">
+					<div class="col-sm-12">
 						<div class="total_area">
 							<ul>
 								<li><label><input type="radio" name="optPaidradio" value="1" checked> <i class="fa fa-money"></i> Thanh toán bằng tiền mặt khi nhận hàng</label></li>
@@ -76,6 +83,7 @@
 					</div>
 				</div>
 			</div>
+
 
 			<div class="review-payment">
 				<h2>Review & Payment</h2>
@@ -120,16 +128,12 @@
 							<td colspan="2">
 								<table class="table table-condensed total-result">
 									<tr>
-										<td>Cart Sub Total</td>
-										<td>{!! $total !!}</td>
+										<td>Tổng tiền</td>
+										<td>{!! $subtotal !!}</td>
 									</tr>
-									<tr class="shipping-cost">
-										<td>Shipping Cost</td>
-										<td>Free</td>
-									</tr>
-									<tr>
+									<!--<tr>
 										<td>Total</td>
-										<td><span>{!! $total !!}</span></td>
+										<td><span></span></td>-->
 									</tr>
 								</table>
 							</td>
@@ -159,8 +163,8 @@
 			</div>
 			<div class="checkout-options">
 				<h3>Đăng nhập để thanh toán</h3>
-				<p>Bạn chưa đăng ký thành viên? <a>Đăng ký</a></p>
-				<center><a type="button" class="btn btn-primary">Đăng nhập</a></center>
+				<p>Bạn chưa đăng ký thành viên? <a href="{{route('getRegister')}}">Đăng ký</a></p>
+				<center><a href="{{route('getLogin')}}" type="button" class="btn btn-primary">Đăng nhập</a></center>
 			</div><!--/checkout-options-->
 
 			<div class="register-req">
@@ -180,105 +184,42 @@
 							<td class="price">Price</td>
 							<td class="quantity">Quantity</td>
 							<td class="total">Total</td>
-							<td></td>
 						</tr>
 					</thead>
 					<tbody>
+						@foreach($content as $item)
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
+								<a href=""><img src="{!! asset('img/hinhanhsanpham/'.$item->options['img']) !!}" width="50px" height="50px"></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<h4>{!! $item->name !!}</h4>
+								<p>ID: {!! $item->id !!}</p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p>{!! number_format($item->price,0,",",".") !!}</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<input class="cart_quantity_input" type="text" name="quantity" value='{!! $item->qty !!}'>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<p class="cart_total_price">{!! number_format($item->price*$item->qty,0,".",",") !!}</p>
 							</td>
 						</tr>
-
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
+						@endforeach
 						<tr>
 							<td colspan="4">&nbsp;</td>
 							<td colspan="2">
 								<table class="table table-condensed total-result">
 									<tr>
-										<td>Cart Sub Total</td>
-										<td>$59</td>
+										<td>Tổng tiền</td>
+										<td>{!! $subtotal !!}</td>
 									</tr>
-									<tr>
-										<td>Exo Tax</td>
-										<td>$2</td>
-									</tr>
-									<tr class="shipping-cost">
-										<td>Shipping Cost</td>
-										<td>Free</td>										
-									</tr>
-									<tr>
+									<!--<tr>
 										<td>Total</td>
-										<td><span>$61</span></td>
+										<td><span></span></td>-->
 									</tr>
 								</table>
 							</td>
