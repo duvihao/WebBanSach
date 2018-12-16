@@ -16,7 +16,9 @@ use Hash;
 use Cart;
 use Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Contracts\Pagination;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 class ClientController extends Controller
 {
     use AuthenticatesUsers;
@@ -29,7 +31,7 @@ class ClientController extends Controller
     }
 
 	public function getIndex(){
-        $listsp=SanPham::where('trangthai', 1)->get();
+        $listsp=SanPham::where('trangthai', 1)->paginate(12);
         return view('client.index')->with('listsp', $listsp);
 	}
     public function getRegister(){
@@ -83,6 +85,26 @@ class ClientController extends Controller
 
     public function getCheckout(){
         return view('client.checkout-new');
+    }
+
+    public function getAllProducts(){
+        $listsp=SanPham::where('trangthai', 1)->paginate(12);
+        return view('client.products')->with('listproducts', $listsp);
+    }
+
+    public function getProductsbyGerne($matl){
+        $listsp = SanPham::where('matl', $matl)->paginate(12);
+        return view('client.theloai')->with('listproducts', $listsp);
+    }
+
+    public function getProductsbyAuthor($matg){
+        $listsp = SanPham::where('matg', $matg)->paginate(12);
+        return view('client.tacgia')->with('listproducts', $listsp);
+    }
+
+    public function getProductsbyPublisher($manxb){
+        $listsp = SanPham::where('manxb', $manxb)->paginate(12);
+        return view('client.nxb')->with('listproducts', $listsp);
     }
 
     public function getProductDetails($masp)

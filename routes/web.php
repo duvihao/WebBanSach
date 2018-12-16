@@ -14,6 +14,14 @@
 
 Route::get('/', ['as' => 'getIndex', 'uses' => 'ClientController@getIndex']);
 
+Route::get('sanpham', ['as'=>'getAllProducts', 'uses'=>'ClientController@getAllProducts']);
+
+Route::get('theloai/{matl}/{alias}', ['as'=>'getProductsbyGerne', 'uses'=>'ClientController@getProductsbyGerne']);
+
+Route::get('tacgia/{matg}/{alias}', ['as'=>'getProductsbyAuthor', 'uses'=>'ClientController@getProductsbyAuthor']);
+
+Route::get('nxb/{manxb}/{alias}', ['as'=>'getProductsbyPublisher', 'uses'=>'ClientController@getProductsbyPublisher']);
+
 Route::get('/product/detail/{masp}/{alias}', ['as' => 'getProductDetails', 'uses' => 'ClientController@getProductDetails']);
 
 Route::get('register', ['as' => 'getRegister', 'uses' => 'ClientController@getRegister']);

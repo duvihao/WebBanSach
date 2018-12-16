@@ -238,7 +238,7 @@
                                                                     </label>
                                                                     <div class="file-button">
                                                                         Chọn tệp
-                                                                        <input type="file" onchange="document.getElementById('prepend-big-btn').value = this.value;">
+                                                                        <input type="file" onchange="document.getElementById('prepend-big-btn').value = this.value;" >
                                                                     </div>
                                                                     <input type="text" id="prepend-big-btn" placeholder="Không có tệp nào được chọn" name="hinhanh" value="{{ $infos['sanpham']->hinhanh }}" >
                                                                 </div>

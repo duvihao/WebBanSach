@@ -19,6 +19,7 @@ class TheLoaiController extends Controller
         $theloai->tentl = $req->tentl;
         $ten = $req->tentl;
         $alias = changeTitle($ten);
+        $theloai->alias=$alias;
         $theloai->trangthai=1;
         $theloai->save();
 
