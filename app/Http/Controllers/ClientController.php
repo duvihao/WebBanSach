@@ -14,7 +14,7 @@ use App\SanPham;
 use App\NXB;
 use Hash;
 use Cart;
-use App\Auth;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class ClientController extends Controller
 {
@@ -67,7 +67,7 @@ class ClientController extends Controller
     }
     public function postLogin(LoginRequest $req){
     	$credentials = array('email'=>$req->loginEmail,'password'=>$req->loginPass);
-    	if(Auth::guard('khach_hangs')->attempt($credentials)){
+    	if(Auth::attempt($credentials)){
     		return redirect()->route('getIndex');
     	}
     	else{
