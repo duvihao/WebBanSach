@@ -85,7 +85,7 @@
                                         <td>{{ $khachhang->makh }}</td>
                                         <td>{{ $khachhang->ten }}</td>
                                         <td>{{ $khachhang->diachi }}</td>
-                                        <td>{{ $khachhang->sodt }}</td>
+                                        <td>{{ $khachhang->sdt }}</td>
                                         <td>{{ $khachhang->ngaysinh }}</td>
                                         <td>
                                             @if ($khachhang->gioitinh == 1) Nam
