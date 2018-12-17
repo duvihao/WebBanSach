@@ -100,10 +100,11 @@ class ClientController extends Controller
     public function getCheckout(){
         $idkh=Auth::guard('khach_hangs')->user()->id;
     	$listdiachi=SoDiaChi::where('makh',$idkh)->get();
+        $htthanhtoan=HinhThucThanhToan::all();
     	$content=Cart::content();
     	//$total=Cart::total();
     	$subtotal=Cart::subtotal();
-    	return view('client.checkout',compact('listdiachi','content','subtotal'));
+    	return view('client.checkout',compact('listdiachi','content','subtotal','htthanhtoan'));
     }
 
     public function postCheckout(Request $req){

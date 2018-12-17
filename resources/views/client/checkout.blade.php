@@ -62,6 +62,7 @@
 						<div class="total_area">
 							<ul>
 								<li><label><input type="radio" name="optShipradio" value="12000" checked> <i class="fa fa-truck"></i> Giao hàng tiêu chuẩn (12000 đ)</label></li>
+								<li><label><input type="radio" name="optShipradio" value="29000" checked> <i class="fa fa-truck"></i> Giao hàng nhanh (29000 đ)</label></li>
 							</ul>
 						</div>
 					</div>
@@ -76,7 +77,8 @@
 					<div class="col-sm-12">
 						<div class="total_area">
 							<ul>
-								<li><label><input type="radio" name="optPaidradio" value="1" checked> <i class="fa fa-money"></i> Thanh toán bằng tiền mặt khi nhận hàng</label></li>
+								@foreach($htthanhtoan as $httt)
+								<li><label><input type="radio" name="optPaidradio" value="{{ $httt->mahttt }}"> <i class="fa fa-money"></i> Thanh toán bằng tiền mặt khi nhận hàng</label></li>
 								<li><label><input type="radio" name="optPaidradio" value="2"><i class="fa fa-credit-card"></i>  Thanh toán bằng chuyển khoản ngân hàng</label></li>
 							</ul>
 						</div>

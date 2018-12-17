@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Requests\RegisterAdminRequest;
 use App\Http\Requests\LoginAdminRequest;
 use App\User;
+use App\DonHang;
 use Hash;
 use Auth;
 
@@ -15,6 +16,7 @@ class AdminController extends Controller
 {
     use AuthenticatesUsers;
     public function getIndex(){
+
     	return view('admin.index');
     }
     public function getRegister(){
