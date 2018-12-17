@@ -53,6 +53,21 @@ Route::get('/admin', function () {
     return view('admin.master');
 });
 
+Route::get('themdiachi', ['as' => 'getThemdiachi', 'uses' => 'ClientController@getThemdiachi']);
+Route::post('themdiachi', ['as' => 'postThemdiachi', 'uses' => 'ClientController@postThemdiachi']);
+
+Route::get('suadiachi/{id}', ['as' => 'getSuadiachi', 'uses' => 'ClientController@getSuadiachi']);
+Route::post('suadiachi/{id}', ['as' => 'postSuadiachi', 'uses' => 'ClientController@postSuadiachi']);
+
+Route::get('admin/register', ['as' => 'getAdminRegister', 'uses' => 'AdminController@getRegister']);
+Route::post('admin/register', ['as' => 'postAdminRegister', 'uses' => 'AdminController@postRegister']);
+Route::get('admin/login', ['as' => 'getAdminLogin', 'uses' => 'AdminController@getLogin']);
+Route::post('admin/login', ['as' => 'postAdminLogin', 'uses' => 'AdminController@postLogin']);
+Route::get('admin/logout', ['as' => 'getAdminLogout', 'uses' => 'AdminController@getLogout']);
+
+Route::get('admin', ['as' => 'getAdminIndex', 'uses' => 'AdminController@getIndex']);
+>>>>>>> 1042c0836a6141d44a6c6311cc6faa141588e3cb
+
 /* The Loai */
 Route::get('admin/theloai', ['as' => 'indexTheLoai', 'uses' => 'TheLoaiController@getTheLoais']);
 

@@ -68,10 +68,13 @@
         <div class="left-sidebar-pro">
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <a href="#"><img src="{{ URL::asset('img/message/1.jpg') }}" alt="" />
-                    </a>
-                    <h3>Admin 1</h3>
+                    @if(Auth::check())
+                    <h3>{{Auth::user()->name}}</h3>
                     <strong>AD</strong>
+                    @else
+                    <h3>Admin</h3>
+                    <strong>AD</strong>
+                    @endif
                 </div>
                 <div class="left-custom-menu-adp-wrap">
                     <ul class="nav navbar-nav left-sidebar-menu-pro">
@@ -140,7 +143,7 @@
                                     <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                         <li class="nav-item">
-                                            <a href="#"><span class="adminpro-icon adminpro-locked author-log-ic"></span>  Log Out</a>
+                                            <a href="{{ route('getAdminLogout') }}"><span class="adminpro-icon adminpro-locked author-log-ic"></span>  Log Out</a>
                                         </li>
 
                                     </ul>

@@ -35,7 +35,7 @@
 								<li>Điện thoại: {{Auth::guard('khach_hangs')->user()->sdt}}</li>
 							</ul>
 								<button class="btn btn-primary"><input type="radio" name="rddiachigiaohang" value="{{ $diachi->madc }}"> Chọn địa chỉ này</button>
-								<a class="btn btn-default check_out" href="">Sửa</a>
+								<a class="btn btn-default check_out" href="{!! url('suadiachi',[$diachi->madc]) !!}">Sửa</a>
 						</div>
 						</center>
 					</div>
@@ -46,7 +46,7 @@
 							<ul>
 								<li>Bạn muốn giao hàng đến địa chỉ khác?</li>
 							</ul>
-								<a class="btn btn-default update" href=""><i class="fa fa-plus"></i> Thêm địa chỉ mới</a>
+								<a class="btn btn-default update" href="{{ route('getThemdiachi') }}"><i class="fa fa-plus"></i> Thêm địa chỉ mới</a>
 						</div>
 						</center>
 					</div>
@@ -233,4 +233,3 @@
 	@endif
 
 @endsection
-

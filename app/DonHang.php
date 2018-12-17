@@ -25,5 +25,3 @@ class DonHang extends Model
     public function hinhthucthanhtoan() {
         return $this->belongsTo('App\HinhThucThanhToan');
     }
-
-}
