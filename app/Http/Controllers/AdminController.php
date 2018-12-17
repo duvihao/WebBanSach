@@ -9,6 +9,8 @@ use App\Http\Requests\RegisterAdminRequest;
 use App\Http\Requests\LoginAdminRequest;
 use App\User;
 use App\DonHang;
+use App\SanPham;
+use App\KhachHang;
 use Hash;
 use Auth;
 
@@ -16,8 +18,11 @@ class AdminController extends Controller
 {
     use AuthenticatesUsers;
     public function getIndex(){
-
-    	return view('admin.index');
+    	$sldonhang=DonHang::count();
+    	$tongtiendh = DonHang::sum('tongtien')*1000;
+    	$slsanpham=SanPham::count();
+    	$slkhachhang=KhachHang::count();
+    	return view('admin.index',compact('sldonhang','tongtiendh','slsanpham','slkhachhang'));
     }
     public function getRegister(){
     	return view('admin.register');
