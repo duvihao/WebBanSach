@@ -52,6 +52,7 @@
                                     $kh = App\KhachHang::where('id',$dh->makh)->first();
                                     $httt = App\HinhThucThanhToan::where('mahttt',$dh->hinhthucthanhtoan)->first();
                                     $ctdh = App\ChiTietDonHang::where('madh',$dh->madh)->get();
+                                    $diachi=App\SoDiaChi::where('madc',$dh->diachigiaohang)->first();
                                     ?>
                                 <div class="sparkline13-graph">
                                     <div class="basic-login-form-ad">
@@ -90,7 +91,11 @@
                                                                     <label class="login2 pull-right pull-right-pro">Địa chỉ giao hàng:</label>
                                                                 </div>
                                                                 <div class="col-lg-4">
-                                                                    <p style="margin: 5px;float: left;">{{$dh->diachigiaohang}}</p>
+                                                                    @if($diachi->thanhpho==1)
+                                                                    <p style="margin: 5px;float: left;">{{$diachi->sonha}},Phường {{$diachi->phuongxa}}, Quận {{$diachi->quanhuyen}}, TP.Hồ Chí Minh</p>
+                                                                    @else
+                                                                    <p style="margin: 5px;float: left;">Khác</p>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>

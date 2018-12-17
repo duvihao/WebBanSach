@@ -119,12 +119,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 		/* Phi Ship */
 		Route::get('phiship', function(){
 			return view('admin.phiship.config');
+		
 		});
-
-
-
-
-		/* HTTT */
+				/* HTTT */
 		Route::get('hinhthucthanhtoan', ['as' => 'indexHinhThucThanhToan', 'uses' => 'HinhThucThanhToanController@getHinhThucThanhToans']);
 
 		/* HTTT */
@@ -135,4 +132,8 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 	});
 		/* Don Hang */
 		Route::resource('dh','DonHangController');
+
+
+
+		
 
