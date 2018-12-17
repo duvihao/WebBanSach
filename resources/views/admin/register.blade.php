@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('main-content')
             <!-- Register Start-->
-               
+
             <div class="login-form-area mg-t-30 mg-b-15">
                 <div class="container-fluid">
                     <div class="row">
@@ -13,7 +13,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="logo">
-                                                <a href="#"><img src="img/logo/logo.png" alt="" />
+                                                <a href="#"><img src="{{ URL::asset('img/logo/logo.png') }}" alt="" />
                                                 </a>
                                             </div>
                                         </div>
@@ -21,7 +21,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="login-title">
-                                                <h1>Registration Form</h1>
+                                                <h1>Đăng ký</h1>
                                             </div>
                                         </div>
                                     </div>

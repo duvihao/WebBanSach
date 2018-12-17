@@ -50,6 +50,9 @@
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+    <!-- form CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ URL::asset('css/form.css') }}">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ URL::asset('css/responsive.css') }}">

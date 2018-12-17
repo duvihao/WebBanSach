@@ -49,7 +49,7 @@
                                 </div>
                                 @foreach($donhang as $dh)
                                     <?php
-                                    $kh = App\KhachHang::where('makh',$dh->makh)->first();
+                                    $kh = App\KhachHang::where('id',$dh->makh)->first();
                                     $httt = App\HinhThucThanhToan::where('mahttt',$dh->hinhthucthanhtoan)->first();
                                     $ctdh = App\ChiTietDonHang::where('madh',$dh->madh)->get();
                                     ?>
@@ -225,7 +225,7 @@
                                                         <td></td>
                                                         <td>{{ $ct->id }}</td>
                                                         <td>
-                                                            <img src="{{URL::asset(''.$sanpham->hinhanh)}}" style="display: block;width: 100px;height: auto;">
+                                                            <img src="{{URL::asset('/img/hinhanhsanpham/'.$sanpham->hinhanh)}}" style="display: block;width: 100px;height: auto;">
                                                         </td>
                                                         <td>{{ $sanpham->tensp }}</td>
                                                         <td>{{ $ct->soluong }}</td>

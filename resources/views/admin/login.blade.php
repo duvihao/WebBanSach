@@ -12,7 +12,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="logo">
-                                                <a href="#"><img src="img/logo/logo.png" alt="" />
+                                                <a href="#"><img src="{{ URL::asset('img/logo/logo.png')}}" alt="" />
                                                 </a>
                                             </div>
                                         </div>
@@ -20,7 +20,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="login-title">
-                                                <h1>Login Form</h1>
+                                                <h1>Đăng nhập</h1>
                                             </div>
                                         </div>
                                     </div>
@@ -69,7 +69,8 @@
                                         </div>
                                         <div class="col-lg-8">
                                             <div class="login-button-pro">
-                                                <button type="submit" class="login-button login-button-lg">Log in</button>
+                                                <a href="{{ route('getAdminRegister') }}" class="login-button login-button-lg">Đăng ký</a>
+                                                <button type="submit" class="login-button login-button-lg">Đăng nhập</button>
                                             </div>
                                         </div>
                                     </div>
