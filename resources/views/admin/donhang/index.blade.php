@@ -106,7 +106,7 @@
                                             <form method="GET">
                                             @foreach($dh as $ds)
                                                 <?php
-                                                $kh = App\KhachHang::Where('makh',$ds->makh)->first();
+                                                $kh = App\KhachHang::Where('id',$ds->makh)->first();
                                                 $httt = App\HinhThucThanhToan::Where('mahttt',$ds->hinhthucthanhtoan)->first();
                                                 ?>
                                                 <tr>

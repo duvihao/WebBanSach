@@ -16,7 +16,6 @@ class CreateHinhThucThanhToansTable extends Migration
         Schema::create('hinh_thuc_thanh_toans', function (Blueprint $table) {
             $table->increments('mahttt');
             $table->string('tenhttt');
-            $table->integer('trangthai');
             $table->timestamps();
         });
     }

@@ -22,7 +22,6 @@ class CreateKhachHangsTable extends Migration
             $table->integer('gioitinh');
             $table->string('email');
             $table->string('password');
-            $table->integer('xu')->nullable();
             $table->integer('trangthai');
             $table->rememberToken();
             $table->timestamps();

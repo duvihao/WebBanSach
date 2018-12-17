@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call('TacGiaTableSeeder');
         $this->call('NXBTableSeeder');
         $this->call('SanPhamTableSeeder');
+        $this->call('KhachHangTableSeeder');
+        $this->call('HinhThucThanhToanTableSeeder');
+        $this->call('DonHangTableSeeder');
+        $this->call('CTDonHangTableSeeder');
 
     }
 }
@@ -478,7 +482,7 @@ class SanPhamTableSeeder extends Seeder {
             'mota'=>"Là quyển sách viết về một người đàn ông ngay cả khi bước vào ngưỡng tuổi 50",
             'loaibia'=>"Bìa mềm",
             'kichthuoc'=>"13 x 20",
-            'gia'=>48000,
+            'gia'=>38000,
             'alias'=>"de-song-ma-khong-hoi-tiec",
             'trangthai'=>1
         ]);
@@ -588,6 +592,129 @@ class SanPhamTableSeeder extends Seeder {
             'kichthuoc'=>"13 x 20",
             'gia'=>86000,
             'alias'=>"meo-moc-chuyen-den-do-va-cai-lo-den-vu-tru",
+            'trangthai'=>1
+        ]);
+    }
+}
+
+class KhachHangTableSeeder extends Seeder{
+    public function run(){
+        DB::table('khach_hangs')->delete();
+
+        DB::table('khach_hangs')->insert([
+            'ten'=>"Nguyễn Văn A",
+            'diachi'=>"01 Nguyễn Trãi",
+            'sdt'=>'012345678',
+            'ngaysinh'=>'1996-01-01',
+            'gioitinh'=>1,
+            'email'=>"nguyenvana@gmail.com",
+            'password'=>Hash::make("123456"),
+            'trangthai'=>1
+        ]);
+    }
+}
+
+class HinhThucThanhToanTableSeeder extends Seeder{
+    public function run(){
+        DB::table('hinh_thuc_thanh_toans')->delete();
+
+        DB::table('hinh_thuc_thanh_toans')->insert([
+            'tenhttt'=>"Tiền mặt"
+        ]);
+
+        DB::table('hinh_thuc_thanh_toans')->insert([
+            'tenhttt'=>"Chuyển khoản"
+        ]);
+    }
+}
+
+class DonHangTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('don_hangs')->delete();
+
+        DB::table('don_hangs')->insert([
+            'makh' => 1,
+            'tongtien' => 128000,
+            'hinhthucthanhtoan' => 1,
+            'diachigiaohang' => '01 Nguyễn Trãi',
+            'phiship' => 12000,
+            'trangthai' => 1,
+            'created_at' => '2018-12-15 12:21:44',
+            'updated_at' => '2018-12-16 09:42:03'
+        ]);
+
+        DB::table('don_hangs')->insert([
+            'makh' => 1,
+            'tongtien' => 256000,
+            'hinhthucthanhtoan' => 1,
+            'diachigiaohang' => '01 Nguyễn Trãi',
+            'phiship' => 12000,
+            'trangthai' => 0,
+            'created_at' => '2018-12-16 09:45:04',
+            'updated_at' => '2018-12-16 09:59:58'
+        ]);
+
+        DB::table('don_hangs')->insert([
+            'makh' => 1,
+            'tongtien' => 180000,
+            'hinhthucthanhtoan' => 1,
+            'diachigiaohang' => '01 Nguyễn Trãi',
+            'phiship' => 12000,
+            'trangthai' => 0,
+            'created_at' => '2018-12-15 10:56:05',
+            'updated_at' => '2018-12-15 13:57:13'
+        ]);
+    }
+}
+
+class CTDonHangTableSeeder extends Seeder{
+    public function run(){
+        DB::table('chi_tiet_don_hangs')->delete();
+
+        DB::table('chi_tiet_don_hangs')->insert([
+            'madh'=>1,
+            'masp'=>14,
+            'soluong'=>1,
+            'dongia'=>38000,
+            'thanhtien'=>38000,
+            'trangthai'=>1
+        ]);
+
+        DB::table('chi_tiet_don_hangs')->insert([
+            'madh'=>1,
+            'masp'=>16,
+            'soluong'=>1,
+            'dongia'=>90000,
+            'thanhtien'=>90000,
+            'trangthai'=>1
+        ]);
+
+        DB::table('chi_tiet_don_hangs')->insert([
+            'madh'=>2,
+            'masp'=>16,
+            'soluong'=>2,
+            'dongia'=>90000,
+            'thanhtien'=>180000,
+            'trangthai'=>1
+        ]);
+
+        DB::table('chi_tiet_don_hangs')->insert([
+            'madh'=>2,
+            'masp'=>14,
+            'soluong'=>2,
+            'dongia'=>38000,
+            'thanhtien'=>76000,
+            'trangthai'=>1
+        ]);
+
+        DB::table('chi_tiet_don_hangs')->insert([
+            'madh'=>3,
+            'masp'=>16,
+            'soluong'=>2,
+            'dongia'=>90000,
+            'thanhtien'=>180000,
             'trangthai'=>1
         ]);
     }

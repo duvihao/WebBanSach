@@ -82,7 +82,7 @@
                                     @foreach($khachhangs as $khachhang)
                                     <tr>
                                         <td></td>
-                                        <td>{{ $khachhang->makh }}</td>
+                                        <td>{{ $khachhang->id }}</td>
                                         <td>{{ $khachhang->ten }}</td>
                                         <td>{{ $khachhang->diachi }}</td>
                                         <td>{{ $khachhang->sdt }}</td>
@@ -94,8 +94,6 @@
                                         </td>
                                         <td>{{ $khachhang->email }}</td>
                                         <td class="datatable-ct">
-                                            <a class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach
