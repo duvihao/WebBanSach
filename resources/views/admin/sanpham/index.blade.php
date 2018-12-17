@@ -92,7 +92,7 @@
                                                     <td>{{ number_format($sanpham->gia, 0) }} đ</td>
                                                     <td class="datatable-ct">
                                                         <a href="{{ route('getEditSanPham', [$sanpham->masp, $sanpham->alias]) }}" class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
+                                                        <a onclick="return confirm('Bạn muốn xóa sản phẩm này?')" href="{{ route('getDeleteSanPham', $sanpham->masp) }}" class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

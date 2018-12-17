@@ -20,9 +20,9 @@ class SanPhamController extends Controller
     }
 
     public function getInfos(){
-        $data['tacgias'] = TacGia::all();
-        $data['nxbs'] = NXB::all();
-        $data['theloais'] = TheLoai::all();
+        $data['tacgias'] = TacGia::where('trangthai', 1)->get();
+        $data['nxbs'] = NXB::where('trangthai', 1)->get();
+        $data['theloais'] = TheLoai::where('trangthai', 1)->get();
         return view ('admin.sanpham.add') -> with('infos', $data);
     }
 

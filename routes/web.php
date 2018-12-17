@@ -111,6 +111,8 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 		Route::post('sanpham/edit/{masp}', ['as' => 'postEditSanPham', 'uses' => 'SanPhamController@editSanPham']);
 		Route::get('sanpham/edit/{masp}/{alias}', ['as' => 'getEditSanPham', 'uses' => 'SanPhamController@getSanPham']);
 
+		Route::get('sanpham/delete/{masp}', ['as' => 'getDeleteSanPham', 'uses'=>'SanPhamController@deleteSanPham']);
+
 
 		/* Khach Hang */
 		Route::get('khachhang', ['as' => 'indexKhachHang', 'uses' => 'KhachHangController@getKhachHangs']);
@@ -119,7 +121,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 		/* Phi Ship */
 		Route::get('phiship', function(){
 			return view('admin.phiship.config');
-		
+
 		});
 				/* HTTT */
 		Route::get('hinhthucthanhtoan', ['as' => 'indexHinhThucThanhToan', 'uses' => 'HinhThucThanhToanController@getHinhThucThanhToans']);
@@ -135,5 +137,5 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 
 
 
-		
+
 
