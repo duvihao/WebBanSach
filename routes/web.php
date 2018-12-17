@@ -66,7 +66,6 @@ Route::post('admin/login', ['as' => 'postAdminLogin', 'uses' => 'AdminController
 Route::get('admin/logout', ['as' => 'getAdminLogout', 'uses' => 'AdminController@getLogout']);
 
 Route::get('admin', ['as' => 'getAdminIndex', 'uses' => 'AdminController@getIndex']);
->>>>>>> 1042c0836a6141d44a6c6311cc6faa141588e3cb
 
 /* The Loai */
 Route::get('admin/theloai', ['as' => 'indexTheLoai', 'uses' => 'TheLoaiController@getTheLoais']);

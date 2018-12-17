@@ -14,14 +14,18 @@ class DonHang extends Model
     protected $primaryKey = 'madh';
     public $timestamps = true;
 
-    public function chitietdonhang() {
+    public function chitietdonhang()
+    {
         return $this->hasMany('App\ChiTietDonHang');
     }
 
-    public function khachhang() {
+    public function khachhang()
+    {
         return $this->belongsTo('App\KhachHang');
     }
 
-    public function hinhthucthanhtoan() {
+    public function hinhthucthanhtoan()
+    {
         return $this->belongsTo('App\HinhThucThanhToan');
     }
+}
