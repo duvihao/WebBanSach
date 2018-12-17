@@ -78,8 +78,8 @@
 						<div class="total_area">
 							<ul>
 								@foreach($htthanhtoan as $httt)
-								<li><label><input type="radio" name="optPaidradio" value="{{ $httt->mahttt }}"> <i class="fa fa-money"></i> Thanh toán bằng tiền mặt khi nhận hàng</label></li>
-								<li><label><input type="radio" name="optPaidradio" value="2"><i class="fa fa-credit-card"></i>  Thanh toán bằng chuyển khoản ngân hàng</label></li>
+								<li><label><input type="radio" name="optPaidradio" value="{{ $httt->mahttt }}"> <i class="fa fa-money"></i> {{ $httt->tenhttt }}</label></li>
+								@endforeach
 							</ul>
 						</div>
 					</div>
