@@ -9,29 +9,49 @@
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Tất cả đơn hàng</h2>
-                    @if($listdh->count() > 0)
-                        @foreach($listdh as $donhang)
-                            <div class="col-sm-4" >
+                            <div class="col-sm-12" >
                                 <div class="product-image-wrapper" >
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <h4 style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis"><a href="{{ route('getCTDonHang', $donhang->madh) }}">{{ $donhang->madh }} </a></h4>
-                                            <p>{{ number_format($donhang->tongtien, 0)}}đ</p>
-                                            <p>{{ $donhang->diachigiaohang}}đ</p>
-                                            <p>{{ $donhang->trangthai}}đ</p>
+                                            <table border="1px">
+                                                <thead>
+                                                <tr style="text-align: center">
+                                                    <th data-field="madh" class="col-sm-2" style="text-align: center">Mã đơn hàng</th>
+                                                    <th data-field="tongtien" class="col-sm-2" style="text-align: center">Tổng tiền</th>
+                                                    <th data-field="httt" class="col-sm-2" style="text-align: center">HT thanh toán</th>
+                                                    <th data-field="dcgh" class="col-sm-2" style="text-align: center">Địa chỉ giao hàng</th>
+                                                    <th data-field="trangthai" class="col-sm-2" style="text-align: center">Trạng thái</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($listdh as $dh)
+                                                        <?php
+                                                        $httt = App\HinhThucThanhToan::Where('mahttt',$dh->hinhthucthanhtoan)->first();
+                                                        ?>
+                                                        <tr>
+                                                            <td>{{ $dh->madh }}</td>
+                                                            <td>{{ $dh->tongtien }}</td>
+                                                            <td>{{ $httt->tenhttt }}</td>
+                                                            <td>{{ $dh->diachigiaohang }}</td>
+                                                            @if($dh->trangthai ==0)
+                                                                <td><input style="text-align: center;" type="text" value="Chưa thanh toán" readonly></td>
+
+                                                            @elseif($dh->trangthai ==1)
+                                                                <td><input type="text" value="Đã thanh toán" disabled style="text-align: center;"></td>
+                                                            @else
+                                                                <td><input type="text" value="Hủy" disabled style="text-align: center;"></td>
+                                                            @endif
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    @else
-                        <div class="col-sm-4" >
-                            <h4>Bạn Chưa Mua Đơn Hàng Nào!</h4>
-                        </div>
-                    @endif
 
                 </div><!--features_items-->
-                {{ $listdh->links() }}
 
             </div>
         </div>

@@ -636,7 +636,7 @@ class DonHangTableSeeder extends Seeder
 
         DB::table('don_hangs')->insert([
             'makh' => 1,
-            'tongtien' => 128000,
+            'tongtien' => 128,
             'hinhthucthanhtoan' => 1,
             'diachigiaohang' => '01 Nguyễn Trãi',
             'phiship' => 12000,
@@ -647,7 +647,7 @@ class DonHangTableSeeder extends Seeder
 
         DB::table('don_hangs')->insert([
             'makh' => 1,
-            'tongtien' => 256000,
+            'tongtien' => 256,
             'hinhthucthanhtoan' => 1,
             'diachigiaohang' => '01 Nguyễn Trãi',
             'phiship' => 12000,
@@ -658,7 +658,7 @@ class DonHangTableSeeder extends Seeder
 
         DB::table('don_hangs')->insert([
             'makh' => 1,
-            'tongtien' => 180000,
+            'tongtien' => 180,
             'hinhthucthanhtoan' => 1,
             'diachigiaohang' => '01 Nguyễn Trãi',
             'phiship' => 12000,

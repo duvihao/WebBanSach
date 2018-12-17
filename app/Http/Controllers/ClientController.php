@@ -15,6 +15,7 @@ use App\SanPham;
 use App\DonHang;
 use App\ChiTietDonHang;
 use App\NXB;
+use App\HinhThucThanhToan;
 use Hash;
 use Cart;
 use Auth;
