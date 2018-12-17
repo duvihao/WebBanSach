@@ -12,9 +12,17 @@
 */
 
 
+Route::get('timkiem', ['as'=>'getSearch', 'uses'=>'ClientController@searchProduct']);
+
 Route::get('/', ['as' => 'getIndex', 'uses' => 'ClientController@getIndex']);
 
 Route::get('sanpham', ['as'=>'getAllProducts', 'uses'=>'ClientController@getAllProducts']);
+
+Route::get('theloai', ['as'=>'getAllGernes', 'uses'=>'ClientController@getAllGernes']);
+
+Route::get('nxb', ['as'=>'getAllPublishers', 'uses'=>'ClientController@getAllPublishers']);
+
+Route::get('tacgia', ['as'=>'getAllAuthors', 'uses'=>'ClientController@getAllAuthors']);
 
 Route::get('theloai/{matl}/{alias}', ['as'=>'getProductsbyGerne', 'uses'=>'ClientController@getProductsbyGerne']);
 
@@ -38,6 +46,12 @@ Route::get('capnhatgiohang/{id}',['as'=>'capnhatgiohang','uses'=>'ClientControll
 
 Route::get('checkout', ['as' => 'getCheckout', 'uses' => 'ClientController@getCheckout'] );
 Route::post('checkout', ['as' => 'postCheckout', 'uses' => 'ClientController@postCheckout'] );
+
+Route::get('donhang/{idkh}', ['as'=>'getDonHang', 'uses'=>'ClientController@getDonHangs']);
+
+Route::get('/admin', function () {
+    return view('admin.master');
+});
 
 Route::get('themdiachi', ['as' => 'getThemdiachi', 'uses' => 'ClientController@getThemdiachi']);
 Route::post('themdiachi', ['as' => 'postThemdiachi', 'uses' => 'ClientController@postThemdiachi']);
@@ -108,10 +122,17 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 		});
 
 
+
+
+		/* HTTT */
+		Route::get('hinhthucthanhtoan', ['as' => 'indexHinhThucThanhToan', 'uses' => 'HinhThucThanhToanController@getHinhThucThanhToans']);
+
 		/* HTTT */
 		Route::get('hinhthucthanhtoan', ['as' => 'indexHinhThucThanhToan', 'uses' => 'HinhThucThanhToanController@getHinhThucThanhToans']);
 
 		/*Route::post('admin/hinhthucthanhtoan/add', ['as' => 'postAddHinhThucThanhToan', 'uses' => 'HinhThucThanhToanController@addHinhThucThanhToan']);
 		Route::get('admin/hinhthucthanhtoan/add', ['as' => 'getAddHinhThucThanhToan', function(){ return view ('admin.hinhthucthanhtoan.add');}]);*/
 	});
+		/* Don Hang */
+		Route::resource('dh','DonHangController');
 

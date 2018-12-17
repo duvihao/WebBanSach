@@ -89,8 +89,8 @@
                                                         <div class="col-lg-8">
                                                             <div class="form-select-list">
                                                                 <select class="form-control custom-select-value" name="gioitinh">
-                                                                    <option value="0">Nam</option>
-                                                                    <option value="1">Nữ</option>
+                                                                    <option value="0">Nữ</option>
+                                                                    <option value="1">Nam</option>
                                                                 </select>
                                                             </div>
                                                         </div>

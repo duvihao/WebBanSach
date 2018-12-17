@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\TacGia;
 use App\TheLoai;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
@@ -25,17 +26,28 @@ class ClientController extends Controller
 {
     use AuthenticatesUsers;
 
-    public function getMaster(){
-        $data['listtl'] = TheLoai::where('trangthai', 1)->get();
-        $data['listnxb'] = NXB::where('trangthai', 1)->get();
-        $data['listtg'] = TacGia::where('trangthai', 1)->get();
-        return view('client.blade')->with('infos', $data);
-    }
-
 	public function getIndex(){
-        $listsp=SanPham::where('trangthai', 1)->paginate(12);
+        $listsp['listspslide']=SanPham::where('trangthai', 1)->inRandomOrder()->take(3)->get();
+        $listsp['temp'] = 1;
+        $listsp['listspnew']=SanPham::where('trangthai', 1)->latest()->take(9)->get();
         return view('client.index')->with('listsp', $listsp);
 	}
+
+    public function getAllGernes(){
+        $listtl=TheLoai::where('trangthai', 1)->get();
+        return view('client.theloais')->with('listtl', $listtl);
+    }
+
+    public function getAllPublishers(){
+        $listnxb=NXB::where('trangthai', 1)->get();
+        return view('client.nxbs')->with('listnxb', $listnxb);
+    }
+
+    public function getAllAuthors(){
+        $listtg=TacGia::where('trangthai', 1)->get();
+        return view('client.tacgias')->with('listtg', $listtg);
+    }
+
     public function getRegister(){
     	return view('client.register');
     }
@@ -93,7 +105,7 @@ class ClientController extends Controller
     	$subtotal=Cart::subtotal();
     	return view('client.checkout',compact('listdiachi','content','subtotal'));
     }
-    
+
     public function postCheckout(Request $req){
     	$donhang=new DonHang();
     	$donhang->makh=Auth::guard('khach_hangs')->user()->id;
@@ -121,29 +133,39 @@ class ClientController extends Controller
     }
 
     public function getAllProducts(){
-        $listsp=SanPham::where('trangthai', 1)->paginate(12);
+        $listsp=SanPham::where('trangthai', 1)->paginate(9);
+        return view('client.products')->with('listproducts', $listsp);
+    }
+
+    public function searchProduct(Request $req){
+	    $keyword=$req->keyword;
+        $listsp=SanPham::where('tensp', 'like', '%'.$keyword.'%')->paginate(9);
         return view('client.products')->with('listproducts', $listsp);
     }
 
     public function getProductsbyGerne($matl){
-        $listsp = SanPham::where('matl', $matl)->paginate(12);
+        $listsp['listsp'] = SanPham::where('matl', $matl)->paginate(9);
+        $listsp['tentl'] = TheLoai::where('matl', $matl)->first()->tentl;
         return view('client.theloai')->with('listproducts', $listsp);
     }
 
     public function getProductsbyAuthor($matg){
-        $listsp = SanPham::where('matg', $matg)->paginate(12);
+        $listsp['listsp'] = SanPham::where('matg', $matg)->paginate(9);
+        $listsp['tentg'] = TacGia::where('matg', $matg)->first()->tentg;
         return view('client.tacgia')->with('listproducts', $listsp);
     }
 
     public function getProductsbyPublisher($manxb){
-        $listsp = SanPham::where('manxb', $manxb)->paginate(12);
+        $listsp['listsp'] = SanPham::where('manxb', $manxb)->paginate(9);
+        $listsp['tennxb'] = NXB::where('manxb', $manxb)->first()->tennxb;
         return view('client.nxb')->with('listproducts', $listsp);
     }
 
     public function getProductDetails($masp)
     {
         $data['product'] = SanPham::where('masp', $masp)->first();
-        $data['listproducts'] = SanPham::where('matl', $data['product']->matl)->get();
+        $temp=SanPham::where('masp', $masp)->first()->matl;
+        $data['listproducts'] = SanPham::where('matl', $temp)->where('masp', '!=', $masp)->get();
         return view('client.product-details')->with('product', $data);
     }
 
@@ -175,9 +197,16 @@ class ClientController extends Controller
     		echo "oke";
     	}
     }
+    public function getDonHangs($idkh)
+    {
+        $listdh = DonHang::where('makh', $idkh)->paginate(10);
+        return view('client.donhangs')->with('listdh', $listdh);
+    }
+
     public function getThemdiachi(){
         return view('client.diachigiaohang.add');
     }
+
     public function postThemdiachi(Request $req){
         $address=new SoDiaChi();
         $address->makh =  Auth::guard('khach_hangs')->user()->id;
