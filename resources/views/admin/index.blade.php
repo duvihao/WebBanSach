@@ -44,7 +44,7 @@
                                 <div class="income-dashone-pro">
                                     <div class="income-rate-total">
                                         <div class="price-adminpro-rate">
-                                            <h3><span>đ</span><span class="counter">{{ $tongtiendh }}</span></h3>
+                                            <h3><span>đ </span><span class="counter">{{ $tongtiendh }}</span></h3>
                                         </div>
                                     </div>
                                     <div class="income-range">
