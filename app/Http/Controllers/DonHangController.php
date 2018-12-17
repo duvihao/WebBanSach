@@ -95,9 +95,9 @@ class DonHangController extends Controller
         $dh = DonHang::where('madh',$id)->first();
         $dh->trangthai= $request->cb_trangthai;
         if($dh->update()){
-            return "success";
+            return redirect('http://localhost:8888/WebBanSach/public/dh/');
         }else{
-            return "error";
+            return redirect('http://localhost:8888/WebBanSach/public/dh/');
         }
     }
 

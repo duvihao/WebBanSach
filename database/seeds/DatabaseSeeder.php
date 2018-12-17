@@ -611,6 +611,14 @@ class KhachHangTableSeeder extends Seeder{
             'password'=>Hash::make("123456"),
             'trangthai'=>1
         ]);
+        DB::table('so_dia_chis')->insert([
+            'makh'=>1,
+            'sonha'=>"01 Nguyễn Trãi",
+            'phuongxa'=>2,
+            'quanhuyen'=>8,
+            'thanhpho'=>1,
+            'trangthai'=>1
+        ]);
     }
 }
 

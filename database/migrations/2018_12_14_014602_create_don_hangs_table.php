@@ -21,7 +21,8 @@ class CreateDonHangsTable extends Migration
             $table->integer('hinhthucthanhtoan')->unsigned();
             $table->foreign('hinhthucthanhtoan')->references('mahttt')->on('hinh_thuc_thanh_toans');
             $table->integer('phiship');
-            $table->string('diachigiaohang');
+            $table->integer('diachigiaohang')->unsigned();
+            $table->foreign('diachigiaohang')->references('madc')->on('so_dia_chis');
             $table->integer('trangthai');
             $table->timestamps();
         });

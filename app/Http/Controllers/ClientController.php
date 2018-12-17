@@ -130,6 +130,7 @@ class ClientController extends Controller
     		$ctdonhang->thanhtien=$item->price*$item->qty;
     		$ctdonhang->trangthai=1;
     		$ctdonhang->save();
+            Cart::remove($item->rowId);
     	}
     	return redirect()->route('getIndex');
     }
