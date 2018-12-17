@@ -58,9 +58,9 @@
                                         <option value="selected">Export Selected</option>
                                     </select>
                                 </div>
-                                <div style="float: right;">
+                                <!--<div style="float: right;">
                                     <a href="#" type="button" class="btn btn-custon-rounded-two btn-success"><i class="fa fa-plus"></i> Thêm HT Thanh Toán</a>
-                                </div>
+                                </div>-->
                                 <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                     <thead>
                                     <tr>
