@@ -69,7 +69,7 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search" name="keyword" id="getSearch"/>
+							<input type="text" placeholder="Tìm kiếm tên sách ..." name="keyword" id="getSearch"/>
 						</div>
 					</div>
                     <div class="col-sm-1">
@@ -98,6 +98,7 @@
 							<ul class="nav nav-pills nav-stacked">
                                 @if(Auth::guard('khach_hangs')->check())
                                     <li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i>Đăng xuất tài khoản</a></li>
+                                    <li><a href="{{ route('getDonHang', Auth::guard('khach_hangs')->user()) }}"><i class="glyphicon glyphicon-gift"></i>Đơn hàng của tôi</a></li>
                                 @else
                                     <li><a href="{{route('getLogin')}}"><i class="fa fa-lock"></i> Đăng nhập tài khoản</a></li>
                                     <li><a href="{{ route('getRegister') }}"><i class="fa fa-star"></i>Đăng ký tài khoản</a></li>

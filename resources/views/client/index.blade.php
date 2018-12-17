@@ -11,20 +11,20 @@
 							<li data-target="#slider-carousel" data-slide-to="2"></li>
 						</ol>
 
-						<div class="carousel-inner" >
+						<div class="carousel-inner" style="height: 300px;">
                             @foreach($listsp['listspslide'] as $sanpham)
-                                @if($listsp['temp']++ != 1)
-                                    <div class="item active">
+                                @if($listsp['temp']++ > 1)
+                                    <div class="item">
                                 @else
-                                        <div class="item">
+                                        <div class="item active">
                                 @endif
                                 <div class="col-sm-8">
-                                    <h1><span>{{ $sanpham->tensp }}</span></h1>
+                                    <h1 style="margin-top:30px; font-family: 'Roboto', sans-serif"><span>{{ $sanpham->tensp }}</span></h1>
                                     <h2>{{ number_format($sanpham->gia, 0) }} đ</h2>
-                                    <a href="{{ route('getProductDetails', [$sanpham->masp,$sanpham->alias]) }}" type="button" class="btn btn-default get">Xem sản phẩm</a>
+                                    <a href="{{ route('getProductDetails', [$sanpham->masp,$sanpham->alias]) }}" type="button" class="btn btn-default get" style="margin-top:0; float:left;">Xem sản phẩm</a>
                                 </div>
                                 <div class="col-sm-4">
-                                    <img src="{!! asset('img/hinhanhsanpham/'.$sanpham->hinhanh) !!}" alt="" height="268" width="249" />
+                                    <img src="{!! asset('img/hinhanhsanpham/'.$sanpham->hinhanh) !!}" alt="" height="300" width="249" />
                                 </div>
                             </div>
                             @endforeach
@@ -61,7 +61,7 @@
 								<div class="single-products" >
                                     <div class="productinfo text-center">
                                         <img src="{!! asset('img/hinhanhsanpham/'.$product->hinhanh) !!}" alt="" height="268" width="249" />
-                                        <h4><a href="{{ route('getProductDetails', [$product->masp, $product->alias]) }}">{{ $product->tensp }}</a></h4>
+                                        <h4 style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis"><a href="{{ route('getProductDetails', [$product->masp, $product->alias]) }}">{{ $product->tensp }}</a></h4>
                                         <p>{{ number_format($product->gia,0) }}đ</p>
                                         <a href="{!! url('themgiohang',[$product->masp,$product->alias]) !!}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                     </div>
@@ -71,7 +71,6 @@
 						</div>
                         @endforeach
 
-                        {{ $listsp['listspnew']->links() }}
 
 					</div><!--features_items-->
 

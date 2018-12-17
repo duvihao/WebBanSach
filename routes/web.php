@@ -47,6 +47,8 @@ Route::get('capnhatgiohang/{id}',['as'=>'capnhatgiohang','uses'=>'ClientControll
 Route::get('checkout', ['as' => 'getCheckout', 'uses' => 'ClientController@getCheckout'] );
 Route::post('checkout', ['as' => 'postCheckout', 'uses' => 'ClientController@postCheckout'] );
 
+Route::get('donhang/{idkh}', ['as'=>'getDonHang', 'uses'=>'ClientController@getDonHangs']);
+
 Route::get('/admin', function () {
     return view('admin.master');
 });

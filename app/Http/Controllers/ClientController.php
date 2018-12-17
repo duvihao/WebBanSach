@@ -29,7 +29,7 @@ class ClientController extends Controller
 	public function getIndex(){
         $listsp['listspslide']=SanPham::where('trangthai', 1)->inRandomOrder()->take(3)->get();
         $listsp['temp'] = 1;
-        $listsp['listspnew']=SanPham::where('trangthai', 1)->latest()->paginate(12);
+        $listsp['listspnew']=SanPham::where('trangthai', 1)->latest()->take(9)->get();
         return view('client.index')->with('listsp', $listsp);
 	}
 
@@ -105,7 +105,7 @@ class ClientController extends Controller
     	$subtotal=Cart::subtotal();
     	return view('client.checkout',compact('listdiachi','content','subtotal'));
     }
-    
+
     public function postCheckout(Request $req){
     	$donhang=new DonHang();
     	$donhang->makh=Auth::guard('khach_hangs')->user()->id;
@@ -133,30 +133,30 @@ class ClientController extends Controller
     }
 
     public function getAllProducts(){
-        $listsp=SanPham::where('trangthai', 1)->paginate(12);
+        $listsp=SanPham::where('trangthai', 1)->paginate(9);
         return view('client.products')->with('listproducts', $listsp);
     }
 
     public function searchProduct(Request $req){
 	    $keyword=$req->keyword;
-        $listsp=SanPham::where('tensp', 'like', '%'.$keyword.'%')->paginate(12);
+        $listsp=SanPham::where('tensp', 'like', '%'.$keyword.'%')->paginate(9);
         return view('client.products')->with('listproducts', $listsp);
     }
 
     public function getProductsbyGerne($matl){
-        $listsp['listsp'] = SanPham::where('matl', $matl)->paginate(12);
+        $listsp['listsp'] = SanPham::where('matl', $matl)->paginate(9);
         $listsp['tentl'] = TheLoai::where('matl', $matl)->first()->tentl;
         return view('client.theloai')->with('listproducts', $listsp);
     }
 
     public function getProductsbyAuthor($matg){
-        $listsp['listsp'] = SanPham::where('matg', $matg)->paginate(12);
+        $listsp['listsp'] = SanPham::where('matg', $matg)->paginate(9);
         $listsp['tentg'] = TacGia::where('matg', $matg)->first()->tentg;
         return view('client.tacgia')->with('listproducts', $listsp);
     }
 
     public function getProductsbyPublisher($manxb){
-        $listsp['listsp'] = SanPham::where('manxb', $manxb)->paginate(12);
+        $listsp['listsp'] = SanPham::where('manxb', $manxb)->paginate(9);
         $listsp['tennxb'] = NXB::where('manxb', $manxb)->first()->tennxb;
         return view('client.nxb')->with('listproducts', $listsp);
     }
@@ -198,6 +198,11 @@ class ClientController extends Controller
     	}
     }
     public function laySoDiaChi(){
-    	
+
+    }
+
+    public function getDonHangs($idkh){
+        $listdh = DonHang::where('makh', $idkh)->paginate(10);
+        return view('client.donhangs')->with('listdh', $listdh);
     }
 }
