@@ -103,10 +103,6 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ url('admin/phiship') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-transfer"></i> <span class="mini-dn">Phí Ship</span></a>
-                        </li>
-
-                        <li class="nav-item">
                             <a href="{{ url('admin/khachhang') }}" class="nav-link dropdown-toggle"><i class="glyphicon glyphicon-user"></i> <span class="mini-dn">Khách Hàng</span></a>
                         </li>
 
