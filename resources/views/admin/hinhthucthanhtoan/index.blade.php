@@ -67,7 +67,6 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="mahttt">Mã HT Thanh Toán</th>
                                         <th data-field="tenhttt">Tên HT Thanh Toán</th>
-                                        <th data-field="action"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -77,10 +76,6 @@
                                         <td></td>
                                         <td>{{ $httt->mahttt }}</td>
                                         <td>{{ $httt->tenhttt }}</td>
-                                        <td class="datatable-ct">
-                                            <a class="btn btn-warning btn-sm" style="color: white;"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-sm" style="color: white;"><i class="fa fa-trash"></i></a>
-                                        </td>
                                     </tr>
                                     @endforeach
 
