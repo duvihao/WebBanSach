@@ -611,6 +611,7 @@ class KhachHangTableSeeder extends Seeder{
             'password'=>Hash::make("123456"),
             'trangthai'=>1
         ]);
+
         DB::table('so_dia_chis')->insert([
             'makh'=>1,
             'sonha'=>"01 Nguyễn Trãi",
@@ -646,7 +647,7 @@ class DonHangTableSeeder extends Seeder
             'makh' => 1,
             'tongtien' => 128,
             'hinhthucthanhtoan' => 1,
-            'diachigiaohang' => '01 Nguyễn Trãi',
+            'diachigiaohang' => 1,
             'phiship' => 12000,
             'trangthai' => 1,
             'created_at' => '2018-12-15 12:21:44',
@@ -657,7 +658,7 @@ class DonHangTableSeeder extends Seeder
             'makh' => 1,
             'tongtien' => 256,
             'hinhthucthanhtoan' => 1,
-            'diachigiaohang' => '01 Nguyễn Trãi',
+            'diachigiaohang' => 1,
             'phiship' => 12000,
             'trangthai' => 0,
             'created_at' => '2018-12-16 09:45:04',
@@ -668,7 +669,7 @@ class DonHangTableSeeder extends Seeder
             'makh' => 1,
             'tongtien' => 180,
             'hinhthucthanhtoan' => 1,
-            'diachigiaohang' => '01 Nguyễn Trãi',
+            'diachigiaohang' => 1,
             'phiship' => 12000,
             'trangthai' => 0,
             'created_at' => '2018-12-15 10:56:05',

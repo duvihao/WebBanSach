@@ -42,7 +42,7 @@
                     <div class="sparkline13-list shadow-reset">
                         <div class="sparkline13-hd">
                             <div class="main-sparkline13-hd">
-                                <h1>Thêm Tác Giả</h1>
+                                <h1>Sửa Tác Giả</h1>
                                 <div class="sparkline13-outline-icon">
                                     <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                 </div>
@@ -99,12 +99,12 @@
                                                         <div class="col-lg-8">
                                                             <div class="form-select-list">
                                                                 <select class="form-control custom-select-value" name="gioitinh">
-                                                                    @if ($tacgia->gioitinh == 0)
-                                                                        <option value="0" selected>Nam</option>
-                                                                        <option value="1">Nữ</option>
+                                                                    @if ($tacgia->gioitinh == 1)
+                                                                        <option value="1" selected>Nam</option>
+                                                                        <option value="0">Nữ</option>
                                                                     @else
-                                                                        <option value="0">Nam</option>
-                                                                        <option value="1" selected>Nữ</option>
+                                                                        <option value="1">Nam</option>
+                                                                        <option value="0" selected>Nữ</option>
                                                                     @endif
                                                                 </select>
                                                             </div>

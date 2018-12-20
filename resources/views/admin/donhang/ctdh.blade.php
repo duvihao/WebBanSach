@@ -132,7 +132,7 @@
                                                                     <label class="login2 pull-right pull-right-pro">Tổng tiền:</label>
                                                                 </div>
                                                                 <div class="col-lg-4">
-                                                                    <p style="margin: 5px;float: left;">{{$dh->tongtien}}</p>
+                                                                    <p style="margin: 5px;float: left;">{{ number_format($dh->tongtien*1000, 0)}} đ</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -234,7 +234,7 @@
                                                         </td>
                                                         <td>{{ $sanpham->tensp }}</td>
                                                         <td>{{ $ct->soluong }}</td>
-                                                        <td>{{ $ct->thanhtien }}</td>
+                                                        <td>{{ number_format($ct->thanhtien, 0) }} đ</td>
 
                                                     </tr>
                                                     @endforeach

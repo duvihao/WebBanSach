@@ -19,7 +19,7 @@
                                                     <th data-field="madh" class="col-sm-2" style="text-align: center">Mã đơn hàng</th>
                                                     <th data-field="tongtien" class="col-sm-2" style="text-align: center">Tổng tiền</th>
                                                     <th data-field="httt" class="col-sm-2" style="text-align: center">HT thanh toán</th>
-                                                    <th data-field="dcgh" class="col-sm-2" style="text-align: center">Địa chỉ giao hàng</th>
+                                                    <th data-field="dcgh" class="col-sm-4" style="text-align: center">Địa chỉ giao hàng</th>
                                                     <th data-field="trangthai" class="col-sm-2" style="text-align: center">Trạng thái</th>
                                                 </tr>
                                                 </thead>
@@ -27,12 +27,13 @@
                                                     @foreach($listdh as $dh)
                                                         <?php
                                                         $httt = App\HinhThucThanhToan::Where('mahttt',$dh->hinhthucthanhtoan)->first();
+                                                        $diachi = App\SoDiaChi::where('madc', $dh->diachigiaohang)->first();
                                                         ?>
                                                         <tr>
                                                             <td>{{ $dh->madh }}</td>
-                                                            <td>{{ $dh->tongtien }}</td>
+                                                            <td>{{ number_format($dh->tongtien*1000, 0) }} đ</td>
                                                             <td>{{ $httt->tenhttt }}</td>
-                                                            <td>{{ $dh->diachigiaohang }}</td>
+                                                            <td>{{ $diachi->sonha }}, Phường {{ $diachi->phuongxa }}, Quận {{ $diachi->quanhuyen }}</td>
                                                             @if($dh->trangthai ==0)
                                                                 <td><input style="text-align: center;" type="text" value="Chưa thanh toán" readonly></td>
 

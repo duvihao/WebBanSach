@@ -47,6 +47,7 @@
 								<li><a href="{{ route('giohang') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 @if(Auth::guard('khach_hangs')->check())
                                     <li><a href="#"><i class="fa fa-user"></i>Hello {{Auth::guard('khach_hangs')->user()->ten}}</a></li>
+                                    <li><a href="{{ route('getThemdiachi') }}"><i class="fa fa-plus"></i>Thêm địa chỉ giao hàng</a></li>
 								    <li><a href="{{route('getLogout')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
 								@else
 								    <li><a href="{{route('getLogin')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>

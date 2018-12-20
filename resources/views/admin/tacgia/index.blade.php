@@ -80,7 +80,7 @@
                                         <td>{{ $tacgia->matg }}</td>
                                         <td>{{ $tacgia->tentg }}</td>
                                         <td>{{ $tacgia->ngaysinh }}</td>
-                                        <td>@if($tacgia->gioitinh == 0) Nam
+                                        <td>@if($tacgia->gioitinh == 1) Nam
                                             @else Nữ
                                             @endif
                                         </td>

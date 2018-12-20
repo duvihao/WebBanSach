@@ -74,8 +74,8 @@
 													<img src="{!! asset('img/hinhanhsanpham/'.$products->hinhanh) !!}" alt="" height="268" width="249"/>
                                                     <h4><a href="{{ route('getProductDetails', [$products->masp, $products->alias]) }}">{{ $products->tensp }}</a></h4>
 													<p>{{ number_format($products->gia,0) }}đ</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-												</div>
+                                                    <a href="{!! url('themgiohang',[$products->masp,$products->tensp]) !!}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                                </div>
 											</div>
 										</div>
 									</div>

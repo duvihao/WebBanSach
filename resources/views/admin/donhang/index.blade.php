@@ -108,14 +108,15 @@
                                                 <?php
                                                 $kh = App\KhachHang::Where('id',$ds->makh)->first();
                                                 $httt = App\HinhThucThanhToan::Where('mahttt',$ds->hinhthucthanhtoan)->first();
+                                                $diachi = App\SoDiaChi::where('madc', $ds->diachigiaohang)->first();
                                                 ?>
                                                 <tr>
                                                     <td></td>
                                                     <td>{{ $ds->madh }}</td>
                                                     <td>{{ $kh->ten }}</td>
-                                                    <td>{{ $ds->tongtien }}</td>
+                                                    <td>{{ number_format($ds->tongtien*1000, 0) }} đ</td>
                                                     <td>{{ $httt->tenhttt }}</td>
-                                                    <td>{{ $ds->diachigiaohang }}</td>
+                                                    <td>{{ $diachi->sonha }}, Phường {{ $diachi->phuongxa }}, Quận {{ $diachi->quanhuyen}}</td>
                                                     @if($ds->trangthai ==0)
                                                         <td><input style="text-align: center;" type="text" value="Chưa thanh toán" readonly></td>
 

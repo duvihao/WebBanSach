@@ -86,7 +86,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 		Route::post('tacgia/add', ['as' => 'postAddTacGia', 'uses' => 'TacGiaController@addTacGia']);
 		Route::get('tacgia/add', ['as' => 'getAddTacGia', function(){ return view ('admin.tacgia.add');}]);
 
-		Route::post('tacgia/edit/{matg}', ['as' => 'postEditTacGia', 'uses' => 'TacGiaController@editTacGia']);
+		Route::post('tacgia/edit/{matg}/{alias}', ['as' => 'postEditTacGia', 'uses' => 'TacGiaController@editTacGia']);
 		Route::get('tacgia/edit/{matg}/{alias}', ['as' => 'getEditTacGia', 'uses' => 'TacGiaController@getTacGia']);
 
 		Route::get('tacgia/delete/{matg}', ['as' => 'deleteTacGia', 'uses' => 'TacGiaController@deleteTacGia']);
